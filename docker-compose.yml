@@ -1,0 +1,34 @@
+# SSH
+# $ docker-compose exec web bash
+web:
+    build: ./
+    working_dir: /var/www/html
+    volumes:
+        - ./:/var/www/html 
+        - ./.nginx.conf:/etc/nginx/conf.d/nginx.conf
+        - /etc/localtime:/etc/localtime
+        - ~/.ssh:/root/.ssh
+    environment:
+        HOST_USER: "${USER}"
+    expose:
+         - "8088"
+    ports:
+        - "8088:8088"
+  #  extra_hosts:
+  #      - "DESENVOLVIMENTO:10.0.20.12"
+    links:
+      - sgi-postgres-database
+# SSH
+# $ docker-compose exec db bash
+sgi-postgres-database:
+    image: postgres:10.1
+    volumes:
+        - /var/lib/postgresql:/var/lib/postgresql
+    environment:
+        POSTGRES_DB: sgi
+        POSTGRES_USER: root
+        POSTGRES_PASSWORD: root
+    expose:
+         - "5432"
+    ports:
+        - "5432:5432"

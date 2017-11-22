@@ -1,0 +1,12 @@
+# App dependencies
+/vendor
+/node_modules
+/bower_components
+composer.phar
+
+# App folders and files
+/storage/*.key
+.env
+
+# IDE
+/nbproject
