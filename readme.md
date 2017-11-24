@@ -1,35 +1,49 @@
-# Documents
+# Laravel/AdminLTE/Bootstrap 4 Boilerplate
 
-* Feito com [Laravel](http://laravel.com)
-* Encode: UTF-8
-* Docker: http://172.17.0.1:8088
+![Laravel](https://img.shields.io/badge/Laravel-5.5.x-green.svg)
+![Bootstrap 4.0.0-beta.2](https://img.shields.io/badge/Bootstrap-4.0.0--beta.2-blue.svg)
 
-## Laravel
+This package is to be served as a basis for a web application. 
 
-Copie o .env
+## Features
 
+* Backend theme [Admin LTE](https://github.com/jomarsilio/AdminLTE)
+* Css framework [Bootstrap 4 beta 2](http://getbootstrap.com/)
+* Additional icons by [Font Awesome](http://fontawesome.io/) and [Ionicons](http://ionicons.com/)
+* Forms & Html helpers by [laravelcollective/html](https://github.com/laravelcollective/html) 
+* Debugbar by [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
+* Curl by [ixudra/curl](https://github.com/ixudra/curl)
+* Localized Portuguese Brazil
+
+## Installation
+
+### 1. In order to install Laravel/AdminLTE Boilerplate run :
+```
+git clone https://github.com/jomarsilio/AdminLTE.git
+```
+
+### 2. Copy .env file:
 ```sh
 $ cp .env.example .env
 ```
 
-## Docker
-
-Instalar pré-requisitos:
+### 3. Install Docker:
 * [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/) 
 * [docker-compose](https://docs.docker.com/compose/install/)
 
-Para levantar o container, basta executar:
+### 4. Built docker container:
 ```sh
-$ docker-compose up
+$ docker-compose build
+$ docker-compose up -d
 ```
 
-Caso necessário, você pode acessar os containers via SSH:
+If necessary, you can access the containers via SSH:
 ```sh
 $ docker-compose exec web bash
 $ docker-compose exec db bash
 ```
 
-Instalando as dependências no container e compilando os assets:
+### 5. Install the dependencies in the container and compile the assets:
 ```sh
 $ docker-compose run web php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
 $ docker-compose run web php composer.phar install
@@ -40,34 +54,8 @@ $ docker-compose run web chmod 0777 storage -R
 $ docker-compose run web chmod 0777 bootstrap/cache -R
 ```
 
-Migrate:
+### 6. Run the command below to publish assets, views, lang files, ...
 
-```sh
-$ docker-compose exec web php artisan migrate
 ```
-
-## Deploy (Capistrano)
-
-Você deve rodar o seguinte comando para desativar a aplicação:
-
-```sh
-$ docker-compose exec web cap deploy:web:disable
-```
-
-Agora sim, para fazer um deploy você deve rodar o seguinte comando, e em seguida informar o servidor em que você deseja fazer o deploy:
-
-```sh
-$ docker-compose exec web cap deploy
-```
-
-Agora você deve rodar o seguinte comando para ativar a aplicação:
-
-```sh
-$ docker-compose exec web cap deploy:web:enable
-```
-
-Você pode listar as tarefas existentes executando o comando:
-
-```sh
-$ docker-compose exec web cap -vT
+php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 ```
