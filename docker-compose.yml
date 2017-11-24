@@ -15,17 +15,17 @@ web:
     ports:
         - "8088:8088"
   #  extra_hosts:
-  #      - "DESENVOLVIMENTO:10.0.20.12"
+  #      - "HOST:ipv4"
     links:
-      - sgi-postgres-database
+      - postgres-database
 # SSH
-# $ docker-compose exec db bash
-sgi-postgres-database:
+# $ docker-compose exec postgres-database bash
+postgres-database:
     image: postgres:10.1
     volumes:
         - /var/lib/postgresql:/var/lib/postgresql
     environment:
-        POSTGRES_DB: sgi
+        POSTGRES_DB: boilerplate
         POSTGRES_USER: root
         POSTGRES_PASSWORD: root
     expose:

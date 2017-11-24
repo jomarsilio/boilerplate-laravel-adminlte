@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'SGI 2.0'),
+    'name' => env('APP_NAME', 'Boilerplate Laravel - AdminLTE'),
 
     /*
     |--------------------------------------------------------------------------

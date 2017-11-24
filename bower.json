@@ -1,6 +1,6 @@
 {
-  "name": "sgi",
-  "description": "SGI 2.0",
+  "name": "boilerplate",
+  "description": "Boilerplate Laravel - AdminLTE",
   "main": "",
   "authors": [
     "Jovana Marsilio <jomarsilio@gmail.com>"
