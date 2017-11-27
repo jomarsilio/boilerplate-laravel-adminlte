@@ -18,6 +18,15 @@
         <link href="{{asset(mix('assets/css/AdminLTE.min.css'))}}" rel="stylesheet">
         <!-- App -->
         <link href="{{asset(mix('assets/css/app.css'))}}" rel="stylesheet">
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
         <!-- Scripts -->
         <script>
@@ -26,23 +35,27 @@
             ]); ?>
         </script>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+    <body class="hold-transition skin-blue">
+        <div class="wrapper">
 
-            <div class="content">
-                @yield('content')
-                </div>
+            <!-- Header navbar -->
+            @include('layouts._nav')
+            
+            <!-- Left side menu -->
+            @include('layouts._menu')
+
+            <div class="content-wrapper">
+
+                <!-- Page header -->
+                @include('shared/_pageHeader')
+
+                <!-- Content -->
+                <section class="content">
+                    @yield('content')
+                </section>
+                
             </div>
+
         </div>
 
         <!-- Jquery -->

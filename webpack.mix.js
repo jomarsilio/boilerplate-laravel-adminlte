@@ -32,7 +32,8 @@ mix.styles([
 ], 'public/assets/css/AdminLTE.min.css').version();
 
 /* IMAGES */
-mix.copyDirectory('resources/assets/images', 'public/assets/images');
+mix.copyDirectory('resources/assets/images', 'public/assets/images')
+   .copyDirectory('resources/assets/AdminLTE/dist/img', 'public/assets/images');
 
 /* FONTS */
 mix.copyDirectory('bower_components/font-awesome/fonts', 'public/assets/fonts');
@@ -45,8 +46,8 @@ mix.scripts([
 
 /* JS DO BOOTSTRAP */
 mix.scripts([
-    'bower_components/bootstrap/dist/js/bootstrap.min.js',
-    'bower_components/popper.js/dist/popper.min.js'
+    'bower_components/popper.js/dist/umd/popper.min.js',
+    'bower_components/bootstrap/dist/js/bootstrap.min.js'
 ], 'public/assets/js/bootstrap.min.js').version();
 
 /* JS DO JQUERY */
