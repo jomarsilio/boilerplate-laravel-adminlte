@@ -8,7 +8,7 @@
 
             <div class="login-logo d-block d-sm-none">
                 <img src="{{ asset('assets/images/logo.png') }}" class="mr-1">
-                <small>{{ config('app.name', 'Laravel') }}</small>
+                <small>{{ config('app.name', 'lARAVEL') }}</small>
             </div>
 
             <div class="card-group">
@@ -87,7 +87,7 @@
                         <div>
                             <h2 class="card-title my-4">
                                 <img src="{{ asset('assets/images/logo-white.png') }}" class="mr-1">
-                                <small>{{ config('app.name', 'SGI') }}</small>
+                                <small>{{ config('app.name', 'lARAVEL') }}</small>
                             </h2>
 
                             <p class="card-text h5">@lang('app.description')</p>

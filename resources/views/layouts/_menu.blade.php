@@ -7,7 +7,7 @@
           <img src="{{ asset('assets/images/user2-160x160.jpg') }}" class="rounded-circle" alt="User Image">
         </div>
         <div class="float-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ auth()->user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

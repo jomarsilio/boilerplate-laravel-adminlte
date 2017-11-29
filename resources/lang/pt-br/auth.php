@@ -19,6 +19,7 @@ return [
     'field' => [
         'sign_in' => 'Entrar',
         'sign_in_description' => 'Preencha o formulário e acesse sua conta.',
+        'sign_out' => 'Sair',
     ],
 
 ];
