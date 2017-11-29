@@ -20,7 +20,7 @@ class ComposerServiceProvider extends ServiceProvider
             $layoutAjax = 'layouts.ajax';
 
             // Define o layout a ser carregado.
-            $layout = Request::ajax() ? $layoutAjax : 'layouts.app';
+            $layout = Request::ajax() ? $layoutAjax : (auth()->check() ? 'layouts.app' : 'layouts.appGuest');
 
             // Compartilha variáveis com a view.
             $view->with(compact('layout'));

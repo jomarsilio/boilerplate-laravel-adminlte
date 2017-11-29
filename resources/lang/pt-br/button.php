@@ -13,12 +13,6 @@ return [
     |
     */
 
-    'failed'   => 'O login ou senha não conferem.',
-    'throttle' => 'Muitas tentativas de login. Tente novamente em :seconds segundos.',
-
-    'field' => [
-        'sign_in' => 'Entrar',
-        'sign_in_description' => 'Preencha o formulário e acesse sua conta.',
-    ],
+    'sign_in' => 'Entrar',
 
 ];

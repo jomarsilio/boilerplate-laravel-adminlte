@@ -33,35 +33,13 @@
             ]); ?>
         </script>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
+    <body class="bg-gray-200" style="height: auto !important;">
 
-            <!-- Header navbar -->
-            @include('layouts._nav')
-            
-            <!-- Left side menu -->
-            @include('layouts._menu')
-
-            <div class="content-wrapper">
-
-                <!-- Page header -->
-                @include('shared/_pageHeader')
-
-                <!-- Content -->
-                <section class="content">
-                    @yield('content')
-                </section>
-                
-            </div>
-
-        </div>
+        <!-- Content -->
+        @yield('content')
 
         <!-- Jquery -->
         <script src="{{asset(mix('assets/js/jquery.min.js'))}}"></script>
-        <!-- Bootstrap -->
-        <script src="{{asset(mix('assets/js/bootstrap.min.js'))}}"></script>
-        <!-- AdminLTE -->
-        <script src="{{asset(mix('assets/js/adminlte.min.js'))}}"></script>
         <!-- App -->
         <script src="{{asset(mix('assets/js/app.min.js'))}}"></script>
         

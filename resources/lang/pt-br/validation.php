@@ -116,6 +116,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        // Login
+        'user.password' => trans('user.field.password'),
+        'user.username' => trans('user.field.username'),
+    ],
 
 ];
