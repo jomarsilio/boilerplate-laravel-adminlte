@@ -13,6 +13,7 @@ This package is to be served as a basis for a web application.
 * Forms & Html helpers by [laravelcollective/html](https://github.com/laravelcollective/html) 
 * Debugbar by [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 * Curl by [ixudra/curl](https://github.com/ixudra/curl)
+* Role-based permissions (ACL) provided by [zizaco/entrust](https://github.com/Zizaco/entrust)
 * Localized Portuguese Brazil
 
 ## Installation
@@ -52,10 +53,4 @@ $ docker-compose run web ./node_modules/.bin/bower install --allow-root
 $ docker-compose run web npm run dev
 $ docker-compose run web chmod 0777 storage -R
 $ docker-compose run web chmod 0777 bootstrap/cache -R
-```
-
-### 6. Run the command below to publish assets, views, lang files, ...
-
-```
-php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 ```

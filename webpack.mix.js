@@ -11,7 +11,7 @@ let mix = require('laravel-mix');
  |
  */
 
- /* CSS DA APLICAÇÂO */
+/* CSS DA APLICAÇÂO */
 mix.sass('resources/assets/sass/app.scss', 'public/assets/css').options({
     processCssUrls: false
 }).version();
@@ -33,7 +33,7 @@ mix.styles([
 
 /* IMAGES */
 mix.copyDirectory('resources/assets/images', 'public/assets/images')
-   .copyDirectory('resources/assets/AdminLTE/dist/img', 'public/assets/images');
+    .copyDirectory('resources/assets/AdminLTE/dist/img', 'public/assets/images');
 
 /* FONTS */
 mix.copyDirectory('bower_components/font-awesome/fonts', 'public/assets/fonts');

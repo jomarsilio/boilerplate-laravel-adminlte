@@ -15,8 +15,8 @@
 
                 <div class="card p-3">
                     <div class="card-body">
-                        <h1 class="card-title d-none d-sm-block">@lang('auth.field.sign_in')</h1>
-                        <p class="card-text text-muted">@lang('auth.field.sign_in_description')</p>
+                        <h1 class="card-title d-none d-sm-block">@lang('auth.sign_in')</h1>
+                        <p class="card-text text-muted">@lang('auth.sign_in_description')</p>
 
                         {!! Form::open(['route' => 'login', 'method' => 'post']) !!}
 

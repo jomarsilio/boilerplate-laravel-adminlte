@@ -14,5 +14,8 @@ return [
     */
 
     'sign_in' => 'Entrar',
+    'save' => 'Salvar',
+    'cancel' => 'Cancelar',
+    'delete' => 'Remover',
 
 ];

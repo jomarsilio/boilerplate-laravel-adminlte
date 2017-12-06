@@ -10,7 +10,8 @@
         "ixudra/curl": "^6.15",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4.0"
+        "laravelcollective/html": "^5.4.0",
+        "zizaco/entrust": "5.2.x-dev"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",
@@ -35,8 +36,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {

@@ -12,7 +12,7 @@
 
         <!-- Bootstrap -->
         <link href="{{asset(mix('assets/css/bootstrap.min.css'))}}" rel="stylesheet">
-        <!-- Font Awesome -->
+        <!-- Fonts -->
         <link href="{{asset(mix('assets/css/fonts.min.css'))}}" rel="stylesheet">
         <!-- AdminLTE -->
         <link href="{{asset(mix('assets/css/AdminLTE.min.css'))}}" rel="stylesheet">
@@ -36,19 +36,22 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
-            <!-- Header navbar -->
+            {{-- Header navbar --}}
             @include('layouts._nav')
             
-            <!-- Left side menu -->
+            {{--  Left side menu  --}}
             @include('layouts._menu')
 
             <div class="content-wrapper">
 
-                <!-- Page header -->
+                {{--  Alerts  --}}
+                @include('shared/_alert')
+
+                {{--  Page header  --}}
                 @include('shared/_pageHeader')
 
-                <!-- Content -->
                 <section class="content">
+                    {{--  Content  --}}
                     @yield('content')
                 </section>
                 

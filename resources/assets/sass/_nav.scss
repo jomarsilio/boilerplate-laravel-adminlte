@@ -1,16 +1,22 @@
-.main-header {
-    .logo {
-        .logo-lg {
-            img {
-                max-width: 45px;
-            }
-            b {
-                vertical-align: middle;
+// Left menu
+.main-sidebar {
+    padding-top: 50px !important;
+    // User panel.
+    .user-panel {
+        .image {
+            i {
+                font-size: 3.2em;
             }
         }
-        .logo-mini {
-            img {
-                max-width: 35px;
+    }
+}
+
+// User panel in the left menu collapsed.
+.sidebar-collapse {
+    .user-panel {
+        .image {
+            i {
+                font-size: 2.2em;
             }
         }
     }

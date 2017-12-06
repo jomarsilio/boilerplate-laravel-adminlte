@@ -1,0 +1,21 @@
+.alert {
+    &.fixed {
+        position: fixed;
+        z-index: 1030;
+        border-radius: 0;
+        right: 0;
+        left: 0;
+        .close {
+            position: relative;
+            top: 0;
+            right: 0;
+        }
+    }
+    // Dismissible alerts
+    .alert-dismissible {
+        // Adjust close link position
+        .close {
+            padding: .65rem $alert-padding-x !important;
+        }
+    }
+}

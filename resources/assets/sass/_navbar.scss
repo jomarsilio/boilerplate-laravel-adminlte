@@ -1,0 +1,17 @@
+.main-header {
+    .logo {
+        .logo-lg {
+            img {
+                max-width: 45px;
+            }
+            b {
+                vertical-align: middle;
+            }
+        }
+        .logo-mini {
+            img {
+                max-width: 35px;
+            }
+        }
+    }
+}

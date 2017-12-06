@@ -12,7 +12,7 @@
 
         <!-- Bootstrap -->
         <link href="{{asset(mix('assets/css/bootstrap.min.css'))}}" rel="stylesheet">
-        <!-- Font Awesome -->
+        <!-- Fonts -->
         <link href="{{asset(mix('assets/css/fonts.min.css'))}}" rel="stylesheet">
         <!-- AdminLTE -->
         <link href="{{asset(mix('assets/css/AdminLTE.min.css'))}}" rel="stylesheet">

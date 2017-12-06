@@ -184,6 +184,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
     ],
 
@@ -241,6 +242,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 

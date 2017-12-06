@@ -6,10 +6,30 @@ return [
       |--------------------------------------------------------------------------
       | Usuário
       |--------------------------------------------------------------------------
-     */
+ */
+
+    'profile' => 'Perfil',
 
     'field' => [
         'username' => 'Usuário (login)',
         'password' => 'Senha',
-    ]
+        'name' => 'Nome completo',
+        'email' => 'E-mail',
+        'current_password' => 'Senha atual',
+        'new_password' => 'Nova senha',
+        'confirm_password' => 'Confirme a nova senha',
+    ],
+
+    'text' => [
+        'to_change_password' => 'Para alterar a senha de acesso, preencha os campos abaixo.',
+    ],
+
+    'response' => [
+        'error' => [
+            'incorrect_password' => 'A senha informada está incorreta.'
+        ],
+        'success' => [
+            'profile_changed' => 'Perfil alterado com sucesso.'
+        ],
+    ],
 ];
