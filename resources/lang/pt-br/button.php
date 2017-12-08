@@ -17,5 +17,6 @@ return [
     'save' => 'Salvar',
     'cancel' => 'Cancelar',
     'delete' => 'Remover',
+    'new' => 'Novo',
 
 ];

@@ -97,7 +97,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin.user.index') }}">
                             <i class="fa fa-circle-o"></i>@lang('menu.user_accounts')
                         </a>
                     </li>

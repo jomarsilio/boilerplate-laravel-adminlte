@@ -146,13 +146,15 @@ class PermissionCreate extends Command
 
             // Seta os valores da permissão.
             $permission->name =  $route['name'];
-            $permission->display_name =  trans('route.'.$route['name']);
+            $permission->display_name =  trans('permission.route.'.$route['name']);
             $permission->active =  true;
 
             $permission->save();
 
-            // Associa a permissão ao administrador.
-            $admin->savePermissions($permission);
+            // O administrador não possui esta permissão?
+            if (!$admin->hasPermission($permission->name)) {
+                $admin->attachPermission($permission);
+            }
         }
     }
 

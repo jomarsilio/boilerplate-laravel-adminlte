@@ -1,24 +1,23 @@
 {
-  "name": "boilerplate",
-  "description": "Boilerplate Laravel - AdminLTE",
-  "main": "",
-  "authors": [
-    "Jovana Marsilio <jomarsilio@gmail.com>"
-  ],
-  "license": "MIT",
-  "homepage": "",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "bootstrap": "v4.0.0-beta",
-    "jquery-mask-plugin": "^1.14.12",
-    "font-awesome": "^4.7.0",
-    "Ionicons": "ionicons#^2.0.1"
-  }
+    "name": "boilerplate",
+    "description": "Boilerplate Laravel - AdminLTE",
+    "main": "",
+    "authors": [
+        "Jovana Marsilio <jomarsilio@gmail.com>"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery-mask-plugin": "^1.14.12",
+        "font-awesome": "^4.7.0",
+        "Ionicons": "ionicons#^2.0.1"
+    }
 }

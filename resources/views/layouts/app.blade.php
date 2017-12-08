@@ -67,6 +67,8 @@
         <script src="{{asset(mix('assets/js/adminlte.min.js'))}}"></script>
         <!-- App -->
         <script src="{{asset(mix('assets/js/app.min.js'))}}"></script>
+        {{-- Constantes da aplicação --}}
+        @include('layouts._javascript')
         
         @yield('script')
     </body>

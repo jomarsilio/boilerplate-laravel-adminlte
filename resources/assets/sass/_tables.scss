@@ -1,0 +1,15 @@
+// Hover effect
+.table-hover {
+    tbody tr {
+        @include hover {
+            background-color: $table-accent-bg !important;
+        }
+    }
+    &.table-striped {
+        tbody tr {
+            @include hover {
+                background-color: $table-hover-bg !important;
+            }
+        }
+    }
+}

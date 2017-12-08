@@ -18,6 +18,7 @@ return [
         'current_password' => 'Senha atual',
         'new_password' => 'Nova senha',
         'confirm_password' => 'Confirme a nova senha',
+        'active' => 'Ativo',
     ],
 
     'text' => [

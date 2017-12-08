@@ -54,3 +54,24 @@ $ docker-compose run web npm run dev
 $ docker-compose run web chmod 0777 storage -R
 $ docker-compose run web chmod 0777 bootstrap/cache -R
 ```
+
+
+### 6 . Run the command below to generate teh application key:
+
+```
+$ docker-compose run web php artisan key:generate
+```
+
+And then, copy the new key to `.env.example` and `.env` file.
+
+### 7 . Run the command below to execute the database migrations:
+
+```
+$ docker-compose run web php artisan migrate --seeds
+```
+
+### 8 . Run the command below to create the permissions in the database:
+
+```
+$ docker-compose run web php artisan permission:create
+```

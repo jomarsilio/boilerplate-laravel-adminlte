@@ -23,7 +23,7 @@ mix.styles([
 ], 'public/assets/css/fonts.min.css').version();
 
 /* CSS DO BOOTSTRAP */
-mix.copy('bower_components/bootstrap/dist/css/bootstrap.min.css', 'public/assets/css/bootstrap.min.css').version();
+mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/assets/css/bootstrap.min.css').version();
 
 /* CSS DO TEMPLATE */
 mix.styles([
@@ -41,18 +41,20 @@ mix.copyDirectory('bower_components/Ionicons/fonts', 'public/assets/fonts');
 
 /* JS DA APLICAÇÃO */
 mix.scripts([
-    'resources/assets/js/app.js'
+    'resources/assets/js/app.js',
+    'resources/assets/js/app/*.js',
+    'resources/assets/js/bind/**/*.js',
 ], 'public/assets/js/app.min.js').version();
 
 /* JS DO BOOTSTRAP */
 mix.scripts([
-    'bower_components/popper.js/dist/umd/popper.min.js',
-    'bower_components/bootstrap/dist/js/bootstrap.min.js'
+    'node_modules/popper.js/dist/umd/popper.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js'
 ], 'public/assets/js/bootstrap.min.js').version();
 
 /* JS DO JQUERY */
 mix.scripts([
-    'bower_components/jquery/dist/jquery.min.js',
+    'node_modules/jquery/dist/jquery.min.js',
     'bower_components/jquery-mask-plugin/dist/jquery.mask.min.js',
 ], 'public/assets/js/jquery.min.js').version();
 
