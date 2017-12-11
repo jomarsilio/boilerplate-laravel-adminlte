@@ -45,7 +45,8 @@
                     <tr>
                         <th scope="col">@lang('user.field.name')</th>
                         <th scope="col">@lang('user.field.username')</th>
-                        <th scope="col" class="d-none d-md-block">@lang('user.field.email')</th>
+                        <th scope="col" class="d-none d-md-table-cell">@lang('user.field.role')</th>
+                        <th scope="col" class="d-none d-md-table-cell">@lang('user.field.email')</th>
                         <th scope="col" class="text-center">@lang('user.field.active')</th>
 
                         @permission('admin.user.edit')
@@ -58,12 +59,13 @@
                     <tr class="{{ $user->active ? null : 'text-muted' }}">
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->username }}</td>
-                        <td class="d-none d-md-block">{{ $user->email ?: '-' }}</td>
+                        <td class="d-none d-md-table-cell">{{ $user->roleName }}</td>
+                        <td class="d-none d-md-table-cell">{{ $user->email ?: '-' }}</td>
                         <td class="text-center">
                             @if($user->active)
-                                <i class="fa fa-check"></i>
+                                <i class="fa fa-eye"></i>
                             @else
-                                <i class="fa fa-times"></i>
+                                <i class="fa fa-eye-slash"></i>
                             @endif
                         </td>
                         @permission('admin.user.edit')

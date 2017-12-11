@@ -7,7 +7,7 @@
     </h1>
 
     {{-- Breadcrumb --}}
-    <ol class="breadcrumb">
+    <ol class="breadcrumb d-none d-md-flex">
         <li class="breadcrumb-item">
             <a href="{{ route('home') }}"><i class="fa fa-home"></i> @lang('menu.home')</a>
         </li>

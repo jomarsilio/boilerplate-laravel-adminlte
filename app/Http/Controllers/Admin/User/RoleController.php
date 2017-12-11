@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
@@ -15,7 +15,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.user.role.index');
+        $roles = Role::orderBy('name')->get();
+
+        return view('admin.user.role.index', compact('roles'));
     }
 
     /**
@@ -35,17 +37,6 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
     {
         //
     }

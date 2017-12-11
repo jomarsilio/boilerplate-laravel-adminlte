@@ -30,12 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         // Profile
         Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
-            
-            Route::get('/edit', 'ProfileController@edit')
-                ->name('edit');
-
-            Route::put('/', 'ProfileController@update')
-                ->name('update');
+            Route::get('/edit', 'ProfileController@edit')->name('edit');
+            Route::put('/', 'ProfileController@update')->name('update');
         });
     });
 
@@ -49,26 +45,19 @@ Route::group(['middleware' => 'auth'], function () {
             Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User'], function () {
 
                 // Users
-                Route::get('/', 'UserController@index')
-                    ->name('index');
-
-                Route::get('/create', 'UserController@create')
-                    ->name('create');
-
-                Route::post('/', 'UserController@store')
-                    ->name('store');
-
-                Route::get('/{user}/edit', 'UserController@edit')
-                    ->name('edit');
-
-                Route::put('/{user}', 'UserController@update')
-                    ->name('update');
+                Route::get('/', 'UserController@index')->name('index');
+                Route::get('/create', 'UserController@create')->name('create');
+                Route::post('/', 'UserController@store')->name('store');
+                Route::get('/{user}/edit', 'UserController@edit')->name('edit');
+                Route::put('/{user}', 'UserController@update')->name('update');
 
                 // Roles (user groups)
                 Route::group(['prefix' => 'role', 'as' => 'role.'], function () {
-
-                    Route::get('/', 'RoleController@index')
-                        ->name('index');
+                    Route::get('/', 'RoleController@index')->name('index');
+                    Route::get('/create', 'RoleController@create')->name('create');
+                    Route::post('/', 'RoleController@store')->name('store');
+                    Route::get('/{user}/edit', 'RoleController@edit')->name('edit');
+                    Route::put('/{user}', 'RoleController@update')->name('update');
                 });
             });
         });

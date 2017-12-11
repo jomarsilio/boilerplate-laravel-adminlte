@@ -19,6 +19,7 @@ return [
         'new_password' => 'Nova senha',
         'confirm_password' => 'Confirme a nova senha',
         'active' => 'Ativo',
+        'role' => 'Papel',
     ],
 
     'text' => [
