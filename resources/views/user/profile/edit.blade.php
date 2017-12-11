@@ -27,6 +27,7 @@
                         'class' => 'form-control' . ($errors->has('user.name') ? ' is-invalid' : ''),
                         'id' => 'user-name',
                         'title' => trans('user.field.name'),
+                        'maxlength' => config('validation.user.name.max'),
                         'required' => true,
                         'autofocus' => true,
                     ]) }}
@@ -45,6 +46,7 @@
                         'class' => 'form-control' . ($errors->has('user.email') ? ' is-invalid' : ''),
                         'id' => 'user-email',
                         'title' => trans('user.field.email'),
+                        'maxlength' => config('validation.user.email.max'),
                     ]) }}
                     
                     @if ($errors->has('user.email'))
@@ -72,6 +74,7 @@
                         'class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''),
                         'id' => 'user-current-password',
                         'title' => trans('user.field.current_password'),
+                        'maxlength' => config('validation.user.password.max'),
                         'required' => true,
                     ]) }}
                 
@@ -96,6 +99,7 @@
                                 'class' => 'form-control' . ($errors->has('new_password') ? ' is-invalid' : ''),
                                 'id' => 'new-password',
                                 'title' => trans('user.field.new_password'),
+                                'maxlength' => config('validation.user.password.max'),
                             ]) }}
                        
                             @if ($errors->has('new_password'))
@@ -112,6 +116,7 @@
                                 'class' => 'form-control' . ($errors->has('new_password_confirmation') ? ' is-invalid' : ''),
                                 'id' => 'confirm-password',
                                 'title' => trans('user.field.confirm_password'),
+                                'maxlength' => config('validation.user.password.max'),
                             ]) }}
                             
                             @if ($errors->has('new_password_confirmation'))

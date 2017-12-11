@@ -20,10 +20,12 @@ return [
         'confirm_password' => 'Confirme a nova senha',
         'active' => 'Ativo',
         'role' => 'Papel',
+        'is_active' => 'Usuário ativo',
     ],
-
+    
     'text' => [
         'to_change_password' => 'Para alterar a senha de acesso, preencha os campos abaixo.',
+        'select_user_role' => 'Selecione o papel',
     ],
 
     'response' => [
@@ -31,7 +33,8 @@ return [
             'incorrect_password' => 'A senha informada está incorreta.'
         ],
         'success' => [
-            'profile_changed' => 'Perfil alterado com sucesso.'
+            'profile_changed' => 'Perfil alterado com sucesso.',
+            'create_user_account' => 'Usuário criado com sucesso.',
         ],
     ],
 ];

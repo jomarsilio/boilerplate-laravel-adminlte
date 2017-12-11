@@ -19,5 +19,6 @@ return [
     'application_settings' => 'Administração',
     'users' => 'Usuários',
     'user_accounts' => 'Contas',
+    'create_user_account' => 'Novo usuário',
     'user_roles' => 'Papéis e permissões',
 ];

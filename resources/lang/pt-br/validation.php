@@ -117,13 +117,14 @@ return [
     */
 
     'attributes' => [
-        // Usuário autenticado
+        // Usuário
         'password' => trans('user.field.password'),
         'new_password' => trans('user.field.new_password'),
         'user.name' => trans('user.field.name'),
         'user.email' => trans('user.field.email'),
         'user.password' => trans('user.field.password'),
         'user.username' => trans('user.field.username'),
+        'roleId' => trans('user.field.role'),
     ],
 
 ];
