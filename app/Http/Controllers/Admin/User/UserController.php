@@ -59,33 +59,52 @@ class UserController extends Controller
         // Grava o usuário e atribui o papel.
         $user = new User($userRequest);
         $user->save();
-        $user->roles()->attach($roleId);
+        $user->attachRole($roleId);
 
         // Retorna a mensagem e sucesso.
         return redirect()->route('admin.user.index')->with('success', trans('user.response.success.create_user_account'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Exibe o formulário de edição de usuários.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        // Resgata os papéis.
+        $roles = Role::orderBy('name')->get();
+        
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Altera os dados de um usuário.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        // Resgata os valores do formulário.
+        $userRequest = $request->input('user');
+        $roleId = $request->input('roleId');
+
+        // Trata os valores a serem alterados.
+        $user->name = $userRequest['name'];
+        $user->email = $userRequest['email'];
+        $user->active = empty($userRequest['active']) ? false : true;
+        $user->password = empty($userRequest['password']) ? $user->password : Hash::make($userRequest['password']);
+        
+        // Grava o usuário e atribui o papel.
+        $user->save();
+        $user->detachRoles();
+        $user->attachRole($roleId);
+
+        // Retorna a mensagem e sucesso.
+        return redirect()->route('admin.user.index')->with('success', trans('user.response.success.update_user_account'));
     }
 
     /**

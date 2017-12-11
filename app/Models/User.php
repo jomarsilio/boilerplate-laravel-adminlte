@@ -91,4 +91,24 @@ class User extends Authenticatable
 
         return implode(',', $roleName);
     }
+
+    /**
+     * Retorna o código dos papéis associoados a um usuário.
+     *
+     * @return string
+     */
+    public function getRoleIdAttribute()
+    {
+        $roleId = [];
+
+        // Resgata os papéis atribuídos ao usuário.
+        $roles = $this->roles()->get();
+
+        // Percorre os papéis e extrai o nome.
+        foreach ($roles as $role) {
+            $roleId[] = $role->id;
+        }
+
+        return implode(',', $roleId);
+    }
 }

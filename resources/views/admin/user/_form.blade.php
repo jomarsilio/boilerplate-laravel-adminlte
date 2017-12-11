@@ -42,7 +42,8 @@
         'id' => 'user-username',
         'title' => trans('user.field.username'),
         'maxlength' => config('validation.user.username.max'),
-        'required' => true,
+        'required' => (!empty($user) ? false : true),
+        'disabled' => (!empty($user) ? true : false),
     ]) }}
 
     @if ($errors->has('user.username'))
@@ -60,7 +61,7 @@
         'id' => 'user-password',
         'title' => trans('user.field.password'),
         'maxlength' => config('validation.user.password.max'),
-        'required' => true,
+        'required' => (!empty($user) ? false : true),
     ]) }}
 
     @if ($errors->has('user.password'))
@@ -73,7 +74,7 @@
 <div class="form-group">
     {{ Form::label('role-id', trans('user.field.role')) }}
 
-    {{ Form::select('roleId', map_with_keys($roles, 'id', 'display_name'), old('roleId') ?: (!empty($user) ? $user->role->id : null), [
+    {{ Form::select('roleId', map_with_keys($roles, 'id', 'display_name'), old('roleId') ?: (!empty($user) ? $user->roleId : null), [
         'class' => 'form-control',
         'id' => 'role-id',
         'title' => trans('user.field.role'),

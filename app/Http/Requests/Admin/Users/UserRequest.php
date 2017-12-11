@@ -23,14 +23,31 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'user.name' => 'required|string|max:'.config('validation.user.name.max'),
-            'user.email' => 'nullable|email|max:'.config('validation.user.email.max'),
-            'user.username' => 'required|string|unique:users,username|max:'.config('validation.user.username.max'),
-            'user.password' => 'required|string'
-            . '|max:'.config('validation.user.password.max')
-            . '|regex:'.config('validation.user.password.regex'),
-            'roleId' => 'required|integer',
-        ];
+        switch($this->method()) {
+            case 'PUT':
+                return [
+                    'user.name' => 'required|string|max:'.config('validation.user.name.max'),
+                    'user.email' => 'nullable|email|max:'.config('validation.user.email.max'),
+                    'user.password' => 'nullable|string'
+                        . '|max:'.config('validation.user.password.max')
+                        . '|regex:'.config('validation.user.password.regex'),
+                    'roleId' => 'required|integer',
+                ];
+                break;
+
+            default:
+                return [
+                    'user.name' => 'required|string|max:'.config('validation.user.name.max'),
+                    'user.email' => 'nullable|email|max:'.config('validation.user.email.max'),
+                    'user.username' => 'required|string|unique:users,username|max:'.config('validation.user.username.max'),
+                    'user.password' => 'required|string'
+                        . '|max:'.config('validation.user.password.max')
+                        . '|regex:'.config('validation.user.password.regex'),
+                    'roleId' => 'required|integer',
+                ];
+                break;
+        }
+
+        
     }
 }

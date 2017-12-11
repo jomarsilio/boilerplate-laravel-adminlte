@@ -20,5 +20,6 @@ return [
     'users' => 'Usuários',
     'user_accounts' => 'Contas',
     'create_user_account' => 'Novo usuário',
+    'update_user_account' => 'Alterar usuário',
     'user_roles' => 'Papéis e permissões',
 ];
