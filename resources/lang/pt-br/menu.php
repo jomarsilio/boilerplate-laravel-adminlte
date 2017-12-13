@@ -22,4 +22,6 @@ return [
     'create_user_account' => 'Novo usuário',
     'update_user_account' => 'Alterar usuário',
     'user_roles' => 'Papéis e permissões',
+    'create_user_role' => 'Novo papel',
+    'update_user_role' => 'Alterar papel',
 ];

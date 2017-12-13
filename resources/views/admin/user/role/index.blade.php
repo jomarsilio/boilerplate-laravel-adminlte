@@ -51,10 +51,7 @@
                         <th scope="col">@lang('role.field.description')</th>
                         <th scope="col" class="d-none d-md-table-cell">@lang('role.field.short_name')</th>
                         <th scope="col" class="d-none d-md-table-cell text-center">@lang('role.field.users')</th>
-                        
-                        @permission('admin.user.role.edit')
-                            <th scope="col">&nbsp;</th>
-                        @endpermission
+                        <th scope="col">&nbsp;</th>
                     </tr>
                 @endslot
 
@@ -65,13 +62,29 @@
                         <td class="d-none d-md-table-cell">{{ $role->name }}</td>
                         <td class="d-none d-md-table-cell text-center">{{ $role->users()->count() }}</td>
 
-                        @permission('admin.user.role.edit')
-                            <td class="text-right pr-3">
-                                <a href="{{ route('admin.user.role.edit', ['role' => $role->id]) }}" class="text-dark">
+                        <td class="text-right pr-3">
+                            {{-- Edição do papel. --}}
+                            @permission('admin.user.role.edit')
+                                <a href="{{ route('admin.user.role.edit', ['role' => $role->id]) }}" class="text-dark" title="@lang('icon.update')">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                            </td>
-                        @endpermission
+                            @endpermission
+
+                            {{-- Modal - confirmação da exclusão do papel. --}}
+                            @include('shared.form._confirm', [
+                                'id' => 'role-destroy-'.$role->id, 
+                                'buttonTitle' => trans('icon.destroy'),
+                                'message' => trans('role.text.confirm_destroy', ['name' => $role->displayName]), 
+                                'formOptions' => [
+                                    'route' => [
+                                        'admin.user.role.destroy',
+                                        'id' => $role->id,
+                                    ], 
+                                    'method' => 'delete'
+                                ],
+                            ])
+                        </td>
+
                     </tr>
                 @endforeach
 

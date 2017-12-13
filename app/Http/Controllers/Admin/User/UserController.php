@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Requests\Admin\Users\UserRequest as Request;
+use App\Http\Requests\Admin\User\UserRequest as Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -48,17 +48,14 @@ class UserController extends Controller
         $userRequest = $request->input('user');
         $roleId = $request->input('roleId');
 
-        // Criptografa a senha.
-        $userRequest['password'] = Hash::make($userRequest['password']);
-
-        // Caso o usuário não esteja ativo.
-        if (empty($userRequest['active'])) {
-            $userRequest['active'] = false;
-        }
-
         // Grava o usuário e atribui o papel.
-        $user = new User($userRequest);
-        $user->save();
+        $user = User::create([
+            'name' => $userRequest['name'],
+            'email' => $userRequest['email'],
+            'username' => $userRequest['username'],
+            'password' => Hash::make($userRequest['password']),
+            'active' => empty($userRequest['active']) ? false : true,
+        ]);
         $user->attachRole($roleId);
 
         // Retorna a mensagem e sucesso.
@@ -105,16 +102,5 @@ class UserController extends Controller
 
         // Retorna a mensagem e sucesso.
         return redirect()->route('admin.user.index')->with('success', trans('user.response.success.update_user_account'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

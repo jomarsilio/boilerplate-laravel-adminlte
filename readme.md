@@ -67,7 +67,7 @@ And then, copy the new key to `.env.example` and `.env` file.
 ### 7 . Run the command below to execute the database migrations:
 
 ```
-$ docker-compose run web php artisan migrate --seeds
+$ docker-compose run web php artisan migrate --seed
 ```
 
 ### 8 . Run the command below to create the permissions in the database:

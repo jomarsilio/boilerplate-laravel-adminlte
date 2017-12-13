@@ -14,7 +14,6 @@ class RolesTableSeeder extends Seeder
     {
         DB::table('roles')->insert([
             [
-                'id' => 1,
                 'name' => 'admin',
                 'display_name' => 'Administrador',
                 'description' => 'Tem permissão a todos os recursos da aplicação.',
@@ -22,7 +21,6 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 4,
                 'name' => 'noc',
                 'display_name' => 'Noc',
                 'description' => '',
@@ -30,7 +28,6 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 5,
                 'name' => 'financial',
                 'display_name' => 'Financeiro',
                 'description' => '',
@@ -38,7 +35,6 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 7,
                 'name' => 'commercial',
                 'display_name' => 'Comercial',
                 'description' => '',
@@ -46,7 +42,6 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 8,
                 'name' => 'operational',
                 'display_name' => 'Operacional',
                 'description' => '',
@@ -54,7 +49,6 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 9,
                 'name' => 'admin_support',
                 'display_name' => 'Suporte administrador',
                 'description' => '',
@@ -62,7 +56,6 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 10,
                 'name' => 'support',
                 'display_name' => 'Suporte',
                 'description' => '',

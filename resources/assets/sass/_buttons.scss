@@ -1,0 +1,7 @@
+.btn-secondary {
+    &:hover,
+    &:active,
+    &.hover {
+        color: color-yiq($light);
+    }
+}

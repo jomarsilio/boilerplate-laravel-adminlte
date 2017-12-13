@@ -24,7 +24,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <i class="icon fa fa-ban"></i> {{ session('error') }}
+        <i class="icon fa fa-ban"></i> {!! session('error') !!}
 
     </div>
 @endif
@@ -36,7 +36,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <i class="icon fa fa-check"></i>{{ session('success') }}
+        <i class="icon fa fa-check"></i>{!! session('success') !!}
         
     </div>
 @endif

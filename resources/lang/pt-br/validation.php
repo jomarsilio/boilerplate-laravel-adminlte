@@ -125,6 +125,10 @@ return [
         'user.password' => trans('user.field.password'),
         'user.username' => trans('user.field.username'),
         'roleId' => trans('user.field.role'),
+
+        // Papéis (grupos)
+        'role.name' => trans('role.field.short_name'),
+        'role.displayName' => trans('role.field.name'),
     ],
 
 ];

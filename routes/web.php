@@ -52,13 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::put('/{user}', 'UserController@update')->name('update');
 
                 // Roles (user groups)
-                Route::group(['prefix' => 'role', 'as' => 'role.'], function () {
-                    Route::get('/', 'RoleController@index')->name('index');
-                    Route::get('/create', 'RoleController@create')->name('create');
-                    Route::post('/', 'RoleController@store')->name('store');
-                    Route::get('/{user}/edit', 'RoleController@edit')->name('edit');
-                    Route::put('/{user}', 'RoleController@update')->name('update');
-                });
+                Route::resource('role', 'RoleController', ['except' => ['show']]);
             });
         });
     });
