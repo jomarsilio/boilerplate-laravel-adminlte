@@ -146,7 +146,6 @@ class PermissionCreate extends Command
 
             // Seta os valores da permissão.
             $permission->name =  $route['name'];
-            $permission->display_name =  trans('permission.route.'.$route['name']);
             $permission->active =  true;
 
             $permission->save();

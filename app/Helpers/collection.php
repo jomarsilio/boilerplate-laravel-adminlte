@@ -8,7 +8,6 @@ if (! function_exists('map_with_keys')) {
      * @param string $keyName
      * @param string|array $valueName
      * @param string  $separator
-     *
      * @return string
      */
     function map_with_keys($collection, $keyName, $valueName, $separator = ' - ')
@@ -44,5 +43,33 @@ if (! function_exists('map_with_keys')) {
         }
         
         return $newCollection;
+    }
+}
+
+if (! function_exists('map_permissions_to_groups')) {
+    /**
+     * Agrupa as permissões com base no nome da permissão.
+     * 
+     * @param Collection $collection
+     * @return Collection
+     */
+    function map_permissions_to_groups($collection)
+    {
+        $groups = $collection->mapToGroups(function ($item, $key) {
+
+            // Gera um array a partir do nome da permissão.
+            $groupPrefix = explode('.', $item->name);
+
+            // Remove o último item do array.
+            array_pop($groupPrefix);
+
+            // Transforma o array em uma string.
+            $groupPrefix = implode('_', $groupPrefix);
+
+            // Seta o grupo ao array de retorno e atribui a permissão.
+            return [$groupPrefix => $item];
+        });
+
+        return $groups;
     }
 }

@@ -39,8 +39,6 @@
 
             @component('shared.components._table')
 
-                @slot('theadClass', 'thead-light')
-
                 @slot('thead')
                     <tr>
                         <th scope="col">@lang('user.field.name')</th>
@@ -62,11 +60,7 @@
                         <td class="d-none d-md-table-cell">{{ $user->roleName }}</td>
                         <td class="d-none d-md-table-cell">{{ $user->email ?: '-' }}</td>
                         <td class="text-center">
-                            @if($user->active)
-                                <i class="fa fa-eye"></i>
-                            @else
-                                <i class="fa fa-eye-slash"></i>
-                            @endif
+                            <i class="fa fa-eye{{ $user->active ? null : '-slash' }}"></i>
                         </td>
                         @permission('admin.user.edit')
                             <td class="text-right pr-3">

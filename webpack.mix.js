@@ -43,6 +43,7 @@ mix.copyDirectory('bower_components/Ionicons/fonts', 'public/assets/fonts');
 mix.scripts([
     'resources/assets/js/app.js',
     'resources/assets/js/app/*.js',
+    'resources/assets/js/app/**/*.js',
     'resources/assets/js/bind/**/*.js',
 ], 'public/assets/js/app.min.js').version();
 

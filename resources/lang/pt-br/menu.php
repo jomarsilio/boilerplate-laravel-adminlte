@@ -24,4 +24,5 @@ return [
     'user_roles' => 'Papéis e permissões',
     'create_user_role' => 'Novo papel',
     'update_user_role' => 'Alterar papel',
+    'role_permissions' => 'Gerenciar permissões do papel ":name"',
 ];

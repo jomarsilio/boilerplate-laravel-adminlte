@@ -13,6 +13,7 @@ return [
         'short_name' => 'Identificador',
         'description' => 'Descrição',
         'users' => 'Usuários',
+        'manage_permissions' => 'Gerenciar permissões',
     ],
 
     'text' => [

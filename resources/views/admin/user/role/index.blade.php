@@ -40,8 +40,6 @@
 
             @component('shared.components._table')
 
-                @slot('theadClass', 'thead-light')
-
                 @slot('thead')
                     <tr>
                         <th scope="col">
@@ -83,6 +81,13 @@
                                     'method' => 'delete'
                                 ],
                             ])
+                            
+                            {{-- Permissões do papel. --}}
+                            @permission('admin.user.role.permission.index')
+                                <a href="{{ route('admin.user.role.permission.index', ['role' => $role->id]) }}" class="text-dark ml-1" title="@lang('role.field.manage_permissions')">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                            @endpermission
                         </td>
 
                     </tr>
