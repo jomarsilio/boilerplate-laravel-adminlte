@@ -1,17 +1,17 @@
 <div class="form-group">
     {{ Form::label('role-display-name', trans('role.field.name')) }}
 
-    {{ Form::text('role[displayName]', old('role.displayName') ?: (!empty($role) ? $role->displayName : null), [
-        'class' => 'form-control' . ($errors->has('role.displayName') ? ' is-invalid' : ''),
+    {{ Form::text('role[display_name]', old('role.display_name') ?: (!empty($role) ? $role->display_name : null), [
+        'class' => 'form-control' . ($errors->has('role.display_name') ? ' is-invalid' : ''),
         'id' => 'role-display-name',
         'title' => trans('role.field.name'),
         'maxlength' => config('validation.role.displayName.max'),
         'autofocus' => true,
     ]) }}
     
-    @if ($errors->has('role.displayName'))
+    @if ($errors->has('role.display_name'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('role.displayName') }}
+            {{ $errors->first('role.display_name') }}
         </div>
     @endif
 </div>
@@ -25,7 +25,7 @@
         'title' => trans('role.field.short_name'),
         'maxlength' => config('validation.role.name.max'),
         'required' => (!empty($role) ? false : true),
-        'disabled' => (!empty($role) ? true : false),
+        'readonly' => (!empty($role) ? true : false),
     ]) }}
 
     @if ($errors->has('role.name'))

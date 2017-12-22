@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'SGI') }}</title>
+        <title>{{ config('app.name', 'LARAVEL') }}</title>
 
         <!-- Bootstrap -->
         <link href="{{asset(mix('assets/css/bootstrap.min.css'))}}" rel="stylesheet">

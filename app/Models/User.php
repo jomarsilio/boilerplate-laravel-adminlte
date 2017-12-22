@@ -71,44 +71,4 @@ class User extends Authenticatable
         // Retorna o primeiro nome.
         return title_case(head($name));
     }
-
-    /**
-     * Retorna o nome dos papéis associoados a um usuario.
-     *
-     * @return string
-     */
-    public function getRoleNameAttribute()
-    {
-        $roleName = [];
-
-        // Resgata os papéis atribuídos ao usuário.
-        $roles = $this->roles()->get();
-
-        // Percorre os papéis e extrai o nome.
-        foreach ($roles as $role) {
-            $roleName[] = $role->display_name;
-        }
-
-        return implode(',', $roleName);
-    }
-
-    /**
-     * Retorna o código dos papéis associoados a um usuário.
-     *
-     * @return string
-     */
-    public function getRoleIdAttribute()
-    {
-        $roleId = [];
-
-        // Resgata os papéis atribuídos ao usuário.
-        $roles = $this->roles()->get();
-
-        // Percorre os papéis e extrai o nome.
-        foreach ($roles as $role) {
-            $roleId[] = $role->id;
-        }
-
-        return implode(',', $roleId);
-    }
 }

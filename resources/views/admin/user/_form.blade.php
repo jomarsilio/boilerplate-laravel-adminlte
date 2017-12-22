@@ -56,13 +56,17 @@
 <div class="form-group">
     {{ Form::label('user-password', trans('user.field.password')) }}
 
-    {{ Form::password('user[password]', [
-        'class' => 'form-control' . ($errors->has('user.password') ? ' is-invalid' : ''),
-        'id' => 'user-password',
-        'title' => trans('user.field.password'),
-        'maxlength' => config('validation.user.password.max'),
-        'required' => (!empty($user) ? false : true),
-    ]) }}
+    <div class="input-group">
+        {{ Form::password('user[password]', [
+            'class' => 'form-control' . ($errors->has('user.password') ? ' is-invalid' : ''),
+            'id' => 'user-password',
+            'title' => trans('user.field.password'),
+            'maxlength' => config('validation.user.password.max'),
+            'required' => (!empty($user) ? false : true),
+        ]) }}
+
+        <span class="input-group-addon" data-toggle="password" data-target="#user-password"><i class="fa fa-eye-slash"></i></span>
+    </div>
 
     @if ($errors->has('user.password'))
         <div class="invalid-feedback d-block">
@@ -74,17 +78,22 @@
 <div class="form-group">
     {{ Form::label('role-id', trans('user.field.role')) }}
 
-    {{ Form::select('roleId', map_with_keys($roles, 'id', 'display_name'), old('roleId') ?: (!empty($user) ? $user->roleId : null), [
-        'class' => 'form-control',
-        'id' => 'role-id',
-        'title' => trans('user.field.role'),
-        'placeholder' => trans('user.text.select_user_role'),
-        'required' => true,
-    ]) }}
+    {{ Form::select(
+        'role_id',
+        map_with_keys($roles, 'id', 'display_name'), 
+        old('role_id') ?: (!empty($user) && $user->roles->isNotEmpty() ? $user->roles->first()->id : null),
+        [
+            'class' => 'form-control' . ($errors->has('role_id') ? ' is-invalid' : ''),
+            'id' => 'role-id',
+            'title' => trans('user.field.role'),
+            'placeholder' => trans('user.text.select_user_role'),
+            'required' => true,
+        ]
+    ) }}
 
-    @if ($errors->has('roleId'))
+    @if ($errors->has('role_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('roleId') }}
+            {{ $errors->first('role_id') }}
         </div>
     @endif
 

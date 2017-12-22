@@ -120,15 +120,11 @@ return [
         // Usuário
         'password' => trans('user.field.password'),
         'new_password' => trans('user.field.new_password'),
-        'user.name' => trans('user.field.name'),
-        'user.email' => trans('user.field.email'),
-        'user.password' => trans('user.field.password'),
-        'user.username' => trans('user.field.username'),
-        'roleId' => trans('user.field.role'),
+        'user' => trans('user.field'),
+        'role_id' => trans('user.field.role'),
 
         // Papéis (grupos)
         'role.name' => trans('role.field.short_name'),
-        'role.displayName' => trans('role.field.name'),
+        'role.display_name' => trans('role.field.name'),
     ],
-
 ];

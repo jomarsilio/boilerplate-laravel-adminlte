@@ -16,7 +16,7 @@ class RoleController extends Controller
     public function index()
     {
         // Resgata os papéis cadastrados.
-        $roles = Role::orderBy('name')->get();
+        $roles = Role::withCount('users')->orderBy('name')->get();
 
         return view('admin.user.role.index', compact('roles'));
     }
@@ -43,14 +43,12 @@ class RoleController extends Controller
         $roleRequest = $request->input('role');
 
         // Grava o usuário e atribui o papel.
-        Role::create([
-            'name' => $roleRequest['name'],
-            'display_name' => $roleRequest['displayName'],
-            'description' => $roleRequest['description'],
-        ]);
+        Role::create($roleRequest);
 
         // Retorna a mensagem e sucesso.
-        return redirect()->route('admin.user.role.index')->with('success', trans('role.response.success.create_role_user'));
+        return redirect()
+            ->route('admin.user.role.index')
+            ->with('success', trans('role.response.success.create_role_user'));
     }
 
     /**
@@ -75,14 +73,17 @@ class RoleController extends Controller
     {
         // Resgata os valores do formulário.
         $roleRequest = $request->input('role');
+
+        // Trata os valores a serem alterados.
+        $roleRequest['name'] = $role->name;
         
-        // Grava o usuário e atribui o papel.
-        $role->display_name = $roleRequest['displayName'];
-        $role->description = $roleRequest['description'];
-        $role->save();
+        // Altera os dados do papel.
+        $role->update($roleRequest);
 
         // Retorna a mensagem e sucesso.
-        return redirect()->route('admin.user.role.index')->with('success', trans('role.response.success.update_role_user'));
+        return redirect()
+            ->route('admin.user.role.index')
+            ->with('success', trans('role.response.success.update_role_user'));
     }
 
     /**
@@ -96,13 +97,17 @@ class RoleController extends Controller
         // O papel possui usuários relacionados?
         if ($role->users()->count()) {
             // Retorna a mensagem de erro.
-            return redirect()->route('admin.user.role.index')->with('error', trans('role.response.error.destroy_role_user', ['name' => $role->displayName]));
+            return redirect()
+                ->route('admin.user.role.index')
+                ->with('error', trans('role.response.error.destroy_role_user', ['name' => $role->display_name]));
         }
 
         // Remove o papel e seus relacionamentos.
         $role->delete();
 
         // Retorna a mensagem de sucesso.
-        return redirect()->route('admin.user.role.index')->with('success', trans('role.response.success.destroy_role_user'));
+        return redirect()
+            ->route('admin.user.role.index')
+            ->with('success', trans('role.response.success.destroy_role_user'));
     }
 }

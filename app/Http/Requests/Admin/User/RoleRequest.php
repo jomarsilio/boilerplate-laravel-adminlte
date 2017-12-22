@@ -23,22 +23,14 @@ class RoleRequest extends FormRequest
      */
     public function rules()
     {
-        switch($this->method()) {
-            case 'PUT':
-                return [
-                    'role.displayName' => 'required|string|max:'.config('validation.role.displayName.max'),
-                    'role.name' => 'nullable|string|max:'.config('validation.role.name.max'),
-                    'role.description' => 'nullable|string|max:'.config('validation.role.description.max'),
-                ];
-                break;
-
-            default:
-                return [
-                    'role.displayName' => 'required|string|max:'.config('validation.role.displayName.max'),
-                    'role.name' => 'required|string|unique:roles,name|max:'.config('validation.role.name.max'),
-                    'role.description' => 'nullable|string|max:'.config('validation.role.description.max'),
-                ];
-                break;
-        }
+        return [
+            'role.display_name' => 'required|string'
+                .'|max:'.config('validation.role.displayName.max'),
+            'role.name' => 'required|string'
+                .'|unique:roles,name'.($this->method() == 'PUT' ? ", {$this->route('role.id')}" : null)
+                .'|max:'.config('validation.role.name.max'),
+            'role.description' => 'nullable|string'
+                .'|max:'.config('validation.role.description.max'),
+        ];
     }
 }

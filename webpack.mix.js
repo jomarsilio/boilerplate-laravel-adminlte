@@ -29,6 +29,8 @@ mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/assets/css
 mix.styles([
     'resources/assets/AdminLTE/dist/css/alt/AdminLTE-without-plugins.min.css',
     'resources/assets/AdminLTE/dist/css/skins/skin-blue.min.css',
+    'bower_components/select2/dist/css/select2.min.css',
+    'resources/assets/AdminLTE/dist/css/alt/AdminLTE-select2.css',
 ], 'public/assets/css/AdminLTE.min.css').version();
 
 /* IMAGES */
@@ -61,5 +63,6 @@ mix.scripts([
 
 /* JS DO TEMPLATE */
 mix.scripts([
-    'resources/assets/AdminLTE/dist/js/adminlte.min.js'
+    'resources/assets/AdminLTE/dist/js/adminlte.min.js',
+    'bower_components/select2/dist/js/select2.js'
 ], 'public/assets/js/adminlte.min.js').version();

@@ -16,14 +16,14 @@
         </div>
 
         {{-- Search form --}}
-        {{--  <form action="#" method="get" class="sidebar-form">
+        <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
                     <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
                 </span>
             </div>
-        </form>  --}}
+        </form>
 
         {{-- Sidebar menu --}}
         <ul class="sidebar-menu" data-widget="tree">
@@ -32,57 +32,6 @@
                     <i class="fa fa-home"></i>
                     <span>@lang('menu.home')</span>
                 </a>
-            </li>
-
-            {{-- Network settings --}}
-            <li class="header text-uppercase">@lang('menu.network_settings')</li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-laptop"></i>
-                    <span>@lang('menu.hardware')</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-building"></i>
-                    <span>@lang('menu.condominiums')</span>
-                </a>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-usb"></i>
-                    <span>@lang('menu.optical_fiber')</span>
-                    <span class="float-right-container">
-                        <i class="fa fa-angle-left float-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i>@lang('menu.points_of_presence')
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i>@lang('menu.concentrators')
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i>@lang('menu.olts')
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i>@lang('menu.splitters')
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i>@lang('menu.access_points')
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             {{-- Apllication settings --}}
@@ -110,7 +59,6 @@
                     {{--  @endpermission  --}}
                 </ul>
             </li>
-
 
             <li class="treeview">
                 <a href="#">
@@ -146,7 +94,6 @@
                 </ul>
             </li>
     
-</ul>
-
+        </ul>
     </section>
   </aside>

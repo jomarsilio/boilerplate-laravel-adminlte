@@ -1,6 +1,6 @@
 @extends($layout)
 
-@section('title', trans('menu.role_permissions', ['name' => $role->displayName]))
+@section('title', trans('menu.role_permissions', ['name' => $role->display_name]))
 
 @section('breadcrumb')
     @include('shared._breadcrumb', [

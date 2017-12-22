@@ -58,7 +58,7 @@
                         <td>{{ $role->display_name }}</td>
                         <td>{{ $role->description }}</td>
                         <td class="d-none d-md-table-cell">{{ $role->name }}</td>
-                        <td class="d-none d-md-table-cell text-center">{{ $role->users()->count() }}</td>
+                        <td class="d-none d-md-table-cell text-center">{{ $role->users_count }}</td>
 
                         <td class="text-right pr-3">
                             {{-- Edição do papel. --}}
@@ -72,7 +72,7 @@
                             @include('shared.form._confirm', [
                                 'id' => 'role-destroy-'.$role->id, 
                                 'buttonTitle' => trans('icon.destroy'),
-                                'message' => trans('role.text.confirm_destroy', ['name' => $role->displayName]), 
+                                'message' => trans('role.text.confirm_destroy', ['name' => $role->display_name]), 
                                 'formOptions' => [
                                     'route' => [
                                         'admin.user.role.destroy',

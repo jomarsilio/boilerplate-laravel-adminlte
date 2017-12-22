@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
                     'user.password' => 'nullable|string'
                         . '|max:'.config('validation.user.password.max')
                         . '|regex:'.config('validation.user.password.regex'),
-                    'roleId' => 'required|integer',
+                    'role_id' => 'required|integer',
                 ];
                 break;
 
@@ -43,7 +43,7 @@ class UserRequest extends FormRequest
                     'user.password' => 'required|string'
                         . '|max:'.config('validation.user.password.max')
                         . '|regex:'.config('validation.user.password.regex'),
-                    'roleId' => 'required|integer',
+                    'role_id' => 'required|integer',
                 ];
                 break;
         }        

@@ -73,3 +73,26 @@ if (! function_exists('map_permissions_to_groups')) {
         return $groups;
     }
 }
+
+if (! function_exists('map_to_groups')) {
+    /**
+     * Agrupa as permissões com base no nome da permissão.
+     *
+     * @param Collection $collection
+     * @param string $prefix
+     * @return Collection
+     */
+    function map_to_groups($collection, $prefix)
+    {
+        $groups = $collection->mapToGroups(function ($item, $key) use ($prefix) {
+
+            // Gera o prefixo do grupo.
+            $groupPrefix = $item->$prefix;
+
+            // Seta o grupo ao array de retorno e atribui o item da coleção.
+            return [$groupPrefix => $item];
+        });
+
+        return $groups;
+    }
+}

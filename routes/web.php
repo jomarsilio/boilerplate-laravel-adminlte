@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
                 // Roles (user groups)
                 Route::resource('role', 'RoleController', ['except' => ['show']]);
 
-                // Permissões de um papel
+                // Role permissions
                 Route::group(['prefix' => 'role/{role}', 'as' => 'role.'], function () {
                     Route::resource('permission', 'PermissionController', ['only' => ['index', 'update']]);
                 });

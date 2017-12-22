@@ -21,6 +21,12 @@ App.bootstrap = {
             // Inicia o tooltip.
             .tooltip();
 
+        $target
+        // Procura os select2.
+            .find('.select2')
+            // Inicia o select2.
+            .select2();
+
         return $target;
     },
 };

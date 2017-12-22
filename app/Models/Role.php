@@ -29,20 +29,4 @@ class Role extends EntrustRole
             config('entrust.role_foreign_key')
         );
     }
-
-    /**
-     * Retorna o nome do papel.
-     *
-     * @return string
-     */
-    public function getDisplayNameAttribute()
-    {
-        // O atributo existe?
-        if (!isset($this->attributes['display_name'])) {
-            return null;
-        }
-
-
-        return $this->attributes['display_name'];
-    }
 }

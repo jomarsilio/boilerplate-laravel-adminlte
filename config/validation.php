@@ -5,6 +5,11 @@
   | Regras para validação dos cadastros.
   |--------------------------------------------------------------------------
  */
+
+// Expressão regular (sem espaço em branco no início e fim da string)
+$regexPassword = '/^\S.+\S$/';
+$jsRegexPassword = '/^\S.+\S$/';
+
 return [
 
     // Usuários
@@ -21,8 +26,8 @@ return [
         'password' => [
             'max' => 15,
             // Expressão regular (sem espaço em branco no início e fim da string)
-            'regex'     => '/^\S.+\S$/',
-            'jsRegex'   => '^\\S.+\\S$',
+            'regex' => $regexPassword,
+            'jsRegex' => $jsRegexPassword,
         ],
     ],
 
