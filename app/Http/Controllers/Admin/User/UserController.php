@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Role;
-use \DB;
 
 class UserController extends Controller
 {
@@ -19,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         // Resgata os usuários.
-        $users = User::with('roles')->orderBy('id')->get();
+        $users = User::orderBy('name')->get();
 
         return view('admin.user.index', compact('users'));
     }
@@ -45,25 +44,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        DB::transaction(function () use ($request) {
-            // Resgata os valores do formulário.
-            $userRequest = $request->input('user');
-            $roleId = $request->input('role_id');
+        // Resgata os valores do formulário.
+        $userRequest = $request->input('user');
+        $roleId = $request->input('roleId');
 
-            // Trata o status do usuário.
-            $userRequest['active'] = empty($userRequest['active']) ? false : true;
-
-            // Grava o usuário.
-            $user = User::create($userRequest);
-
-            // Atribui o papel.
-            $user->attachRole($roleId);
-        });
+        // Grava o usuário e atribui o papel.
+        $user = User::create([
+            'name' => $userRequest['name'],
+            'email' => $userRequest['email'],
+            'username' => $userRequest['username'],
+            'password' => Hash::make($userRequest['password']),
+            'active' => empty($userRequest['active']) ? false : true,
+        ]);
+        $user->attachRole($roleId);
 
         // Retorna a mensagem e sucesso.
-        return redirect()
-            ->route('admin.user.index')
-            ->with('success', trans('user.response.success.create_user_account'));
+        return redirect()->route('admin.user.index')->with('success', trans('user.response.success.create_user_account'));
     }
 
     /**
@@ -89,24 +85,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        DB::transaction(function () use ($request, $user) {
-            // Resgata os valores do formulário.
-            $userRequest = $request->input('user');
-            $roleId = $request->input('role_id');
-            
-            // Trata os valores a serem alterados.
-            $userRequest['active'] = empty($userRequest['active']) ? false : true;
-            $userRequest['password'] = empty($userRequest['password']) ? $user->password : Hash::make($userRequest['password']);
-            $userRequest['username'] = $user->username;
-            
-            // Grava o usuário e atribui o papel.
-            $user->update($userRequest);
-            $user->roles()->sync($roleId);
-        });
+        // Resgata os valores do formulário.
+        $userRequest = $request->input('user');
+        $roleId = $request->input('roleId');
+
+        // Trata os valores a serem alterados.
+        $user->name = $userRequest['name'];
+        $user->email = $userRequest['email'];
+        $user->active = empty($userRequest['active']) ? false : true;
+        $user->password = empty($userRequest['password']) ? $user->password : Hash::make($userRequest['password']);
+        
+        // Grava o usuário e atribui o papel.
+        $user->save();
+        $user->detachRoles();
+        $user->attachRole($roleId);
 
         // Retorna a mensagem e sucesso.
-        return redirect()
-            ->route('admin.user.index')
-            ->with('success', trans('user.response.success.update_user_account'));
+        return redirect()->route('admin.user.index')->with('success', trans('user.response.success.update_user_account'));
     }
 }

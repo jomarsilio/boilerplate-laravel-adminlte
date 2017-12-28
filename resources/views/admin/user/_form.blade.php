@@ -1,103 +1,72 @@
-<div class="form-group">
-    {{ Form::label('user-name', trans('user.field.name')) }}
+{!!
+    Form::inputComponent(
+        'text',
+        'user[name]',
+        (!empty($user) ? $user->name : null),
+        'user.field.name',
+        [
+            'maxlength' => config('validation.user.name.max'),
+            'required' => true,
+            'autofocus' => true,
+        ],
+        $errors        
+    )
+!!}
 
-    {{ Form::text('user[name]', old('user.name') ?: (!empty($user) ? $user->name : null), [
-        'class' => 'form-control' . ($errors->has('user.name') ? ' is-invalid' : ''),
-        'id' => 'user-name',
-        'title' => trans('user.field.name'),
-        'maxlength' => config('validation.user.name.max'),
-        'required' => true,
-        'autofocus' => true,
-    ]) }}
+{!!
+    Form::inputComponent(
+        'email',
+        'user[email]',
+        (!empty($user) ? $user->email : null),
+        'user.field.email',
+        [
+            'maxlength' => config('validation.user.email.max'),
+        ],
+        $errors        
+    )
+!!}
 
-    @if ($errors->has('user.name'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user.name') }}
-        </div>
-    @endif
-</div>
+{!!
+    Form::inputComponent(
+        'text',
+        'user[username]',
+        (!empty($user) ? $user->username : null),
+        'user.field.username',
+        [
+            'maxlength' => config('validation.user.username.max'),
+            'required' => (!empty($user) ? false : true),
+            'disabled' => (!empty($user) ? true : false),
+        ],
+        $errors        
+    )
+!!}
 
-<div class="form-group">
-    {{ Form::label('user-email', trans('user.field.email')) }}
-
-    {{ Form::email('user[email]', old('user.email') ?: (!empty($user) ? $user->email : null), [
-        'class' => 'form-control' . ($errors->has('user.email') ? ' is-invalid' : ''),
-        'id' => 'user-email',
-        'title' => trans('user.field.email'),
-        'maxlength' => config('validation.user.email.max'),
-    ]) }}
-    
-    @if ($errors->has('user.email'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user.email') }}
-        </div>
-    @endif
-</div>
-
-<div class="form-group">
-    {{ Form::label('user-username', trans('user.field.username')) }}
-
-    {{ Form::text('user[username]', old('user.username') ?: (!empty($user) ? $user->username : null), [
-        'class' => 'form-control' . ($errors->has('user.username') ? ' is-invalid' : ''),
-        'id' => 'user-username',
-        'title' => trans('user.field.username'),
-        'maxlength' => config('validation.user.username.max'),
-        'required' => (!empty($user) ? false : true),
-        'disabled' => (!empty($user) ? true : false),
-    ]) }}
-
-    @if ($errors->has('user.username'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user.username') }}
-        </div>
-    @endif
-</div>
-
-<div class="form-group">
-    {{ Form::label('user-password', trans('user.field.password')) }}
-
-    <div class="input-group">
-        {{ Form::password('user[password]', [
-            'class' => 'form-control' . ($errors->has('user.password') ? ' is-invalid' : ''),
-            'id' => 'user-password',
-            'title' => trans('user.field.password'),
+{!!
+    Form::passwordComponent(
+        'user[password]',
+        null,
+        'user.field.password',
+        [
             'maxlength' => config('validation.user.password.max'),
             'required' => (!empty($user) ? false : true),
-        ]) }}
+        ],
+        $errors        
+    )
+!!}
 
-        <span class="input-group-addon" data-toggle="password" data-target="#user-password"><i class="fa fa-eye-slash"></i></span>
-    </div>
-
-    @if ($errors->has('user.password'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user.password') }}
-        </div>
-    @endif
-</div>
-   
-<div class="form-group">
-    {{ Form::label('role-id', trans('user.field.role')) }}
-
-    {{ Form::select(
-        'role_id',
-        map_with_keys($roles, 'id', 'display_name'), 
-        old('role_id') ?: (!empty($user) && $user->roles->isNotEmpty() ? $user->roles->first()->id : null),
+{!!
+    Form::selectComponent(
+        'roleId',
+        map_with_keys($roles, 'id', 'display_name'),
+        !empty($user) ? $user->roleId : null,
+        'user.field.role',
         [
-            'class' => 'form-control' . ($errors->has('role_id') ? ' is-invalid' : ''),
-            'id' => 'role-id',
-            'title' => trans('user.field.role'),
             'placeholder' => trans('user.text.select_user_role'),
             'required' => true,
-        ]
-    ) }}
-
-    @if ($errors->has('role_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('role_id') }}
-        </div>
-    @endif
-
-</div>
+        ],
+        $errors        
+    )
+!!}
    
 <div class="form-group">
     {{ Form::label('user-active', trans('user.field.is_active')) }}

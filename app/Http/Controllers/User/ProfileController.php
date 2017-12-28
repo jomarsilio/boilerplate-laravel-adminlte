@@ -56,7 +56,10 @@ class ProfileController extends Controller
         }
 
         // Seta a nova senha de acesso.
-        $user->password = Hash::make($newPassword);
+        if (!empty($newPassword)) {
+            // Seta a nova senha de acesso.
+            $user->password = Hash::make($newPassword);
+        }
 
         // Percorre os valores a serem atualizados.
         foreach($userValues as $key => $value) {

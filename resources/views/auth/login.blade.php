@@ -8,7 +8,7 @@
 
             <div class="login-logo d-block d-sm-none">
                 <img src="{{ asset('assets/images/logo.png') }}" class="mr-1">
-                <small>{{ config('app.name', 'lARAVEL') }}</small>
+                <small>{{ config('app.name', 'SGI') }}</small>
             </div>
 
             <div class="card-group">
@@ -38,11 +38,7 @@
                                 
                                 </div>
 
-                                @if ($errors->has('username'))
-                                    <div class="invalid-feedback d-block">
-                                        {{ $errors->first('username') }}
-                                    </div>
-                                @endif
+                                {!! Form::error('username', $errors) !!}
                             </div>
 
                             <div class="form-group">
@@ -63,11 +59,7 @@
                                 
                                 </div>
 
-                                @if ($errors->has('password'))
-                                    <div class="invalid-feedback d-block">
-                                        {{ $errors->first('password') }}
-                                    </div>
-                                @endif
+                                {!! Form::error('password', $errors) !!}
                             </div>
 
                             {{ Form::submit(trans('button.sign_in'), [
@@ -87,7 +79,7 @@
                         <div>
                             <h2 class="card-title my-4">
                                 <img src="{{ asset('assets/images/logo-white.png') }}" class="mr-1">
-                                <small>{{ config('app.name', 'lARAVEL') }}</small>
+                                <small>{{ config('app.name', 'SGI') }}</small>
                             </h2>
 
                             <p class="card-text h5">@lang('app.description')</p>

@@ -167,6 +167,10 @@ return [
         /*
          * Package Service Providers...
          */
+        Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Ixudra\Curl\CurlServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,15 +181,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
-
-        /**
-         * APP
-         */
-        Collective\Html\HtmlServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Ixudra\Curl\CurlServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class,
-
+        App\Providers\FormServiceProvider::class,
     ],
 
     /*
@@ -236,7 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /**
-         * APP
+         * Package aliases
          */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
