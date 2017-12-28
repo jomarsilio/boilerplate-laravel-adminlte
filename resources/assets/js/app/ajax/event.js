@@ -105,7 +105,7 @@ App.ajax.event = {
         // App.ajax.modal.removelOpeneds(0);
 
         // Remove o preloader.
-        // App.preloader.remove();
+        App.preloader.remove();
     },
 
     /**
@@ -117,6 +117,6 @@ App.ajax.event = {
      */
     before: function($element) {
         // Adiciona o preloader.
-        // App.preloader.add();
+        App.preloader.add();
     },
 }
