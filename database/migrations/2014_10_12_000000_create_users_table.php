@@ -24,6 +24,20 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        
+        Schema::create('log_auths', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->string('username', 255);
+            $table->string('method', 5);
+            $table->string('url');
+            $table->boolean('success')->default(false);
+            $table->string('ip', 15);
+            $table->string('user_agent');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
     }
 
     /**
@@ -33,6 +47,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('log_auths');
         Schema::dropIfExists('users');
     }
 }

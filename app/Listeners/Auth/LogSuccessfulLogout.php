@@ -2,12 +2,12 @@
 
 namespace App\Listeners\Auth;
 
-use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Log\LogAuth;
 
-class LogSuccessfulLogin
+class LogSuccessfulLogout
 {
     /**
      * Create the event listener.
@@ -22,22 +22,18 @@ class LogSuccessfulLogin
     /**
      * Handle the event.
      *
-     * @param  Login  $event
+     * @param  Logout  $event
      * @return void
      */
-    public function handle(Login $event)
+    public function handle(Logout $event)
     {
-        // Seta e grava a data do último acesso.
-        $event->user->accessed_at = now();
-        $event->user->save();
-
         // Resgata os dados da requisição.
         $request = request();
 
         // Grava o log.
         LogAuth::create([
             'user_id' => $event->user->id,
-            'username' => $request->input('username'),
+            'username' => $event->user->username,
             'method' => $request->method(),
             'url' => $request->url(),
             'ip' => $request->ip(),

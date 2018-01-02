@@ -39,6 +39,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Logs de autenticação.
+     */
+    public function logAuths()
+    {
+        return $this->hasMany('App\Models\Log\LogAuth')->orderBy('created_at', 'desc');
+    }
+
+    /**
      * Retorna o primeiro nome do usuário.
      *
      * @return string
@@ -81,7 +89,7 @@ class User extends Authenticatable
         // Retorna o primeiro nome.
         return title_case(head($name));
     }
-    
+
     /**
      * Converte o formato da data ao resgatar o atributo.
      */
@@ -94,5 +102,4 @@ class User extends Authenticatable
 
         return null;
     }
-
 }
