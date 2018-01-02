@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username', 'active'
+        'name', 'email', 'password', 'username', 'active', 'accessed_at'
     ];
 
     /**
@@ -26,6 +27,15 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'accessed_at'
     ];
 
     /**
@@ -71,4 +81,18 @@ class User extends Authenticatable
         // Retorna o primeiro nome.
         return title_case(head($name));
     }
+    
+    /**
+     * Converte o formato da data ao resgatar o atributo.
+     */
+    public function getAccessedAtAttribute()
+    {
+        if (!empty($this->attributes['accessed_at'])) {
+            // Converte para o formato d/m/Y H:i:s.
+            return Carbon::createFromFormat('Y-m-d H:i:s', $this->attributes['accessed_at'])->format('d/m/Y H:i:s');
+        }
+
+        return null;
+    }
+
 }

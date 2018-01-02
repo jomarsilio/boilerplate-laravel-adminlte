@@ -21,6 +21,7 @@ return [
         'active' => 'Ativo',
         'role' => 'Papel',
         'is_active' => 'Usuário ativo',
+        'last_access' => 'Último acesso',
     ],
     
     'text' => [
