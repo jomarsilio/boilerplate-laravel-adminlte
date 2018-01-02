@@ -155,6 +155,9 @@ class PermissionCreate extends Command
                 $admin->attachPermission($permission);
             }
         }
+
+        // Remove as permissões inativas.
+        $this->destroyDisabledPermissions();
     }
 
     /**
@@ -163,5 +166,13 @@ class PermissionCreate extends Command
     protected function disablePermissions()
     {
         Permission::where('active', true)->update(['active' => false]);
+    }
+    
+    /**
+     * Remove disabled permissions.
+     */
+    protected function destroyDisabledPermissions()
+    {
+        Permission::where('active', false)->delete();
     }
 }
