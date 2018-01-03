@@ -13,4 +13,9 @@ return [
         'search' => 'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ',
         'replace' => 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY',
     ],
+
+    // Configurações de paginação
+    'pagination' => [
+        'perPage' => 10,
+    ]
 ];
