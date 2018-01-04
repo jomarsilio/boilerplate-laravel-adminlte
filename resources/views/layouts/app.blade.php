@@ -40,7 +40,7 @@
             @include('layouts._nav')
             
             {{--  Left side menu  --}}
-            @include('layouts._menu')
+            @include('layouts._aside')
 
             <div class="content-wrapper">
 
