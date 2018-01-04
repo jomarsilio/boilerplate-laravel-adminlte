@@ -56,9 +56,9 @@
 
 {!!
     Form::selectComponent(
-        'roleId',
+        'role_id',
         map_with_keys($roles, 'id', 'display_name'),
-        !empty($user) ? $user->roleId : null,
+        !empty($user) ? $user->roles()->first()->id : null,
         'user.field.role',
         [
             'placeholder' => trans('user.text.select_user_role'),

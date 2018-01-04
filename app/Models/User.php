@@ -39,6 +39,21 @@ class User extends Authenticatable
     ];
 
     /**
+     * Many-to-Many relations with the role model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(
+            config('entrust.role'),
+            config('entrust.role_user_table'),
+            config('entrust.role_foreign_key'),
+            config('entrust.user_foreign_key')
+        );
+    }
+
+    /**
      * Logs de autenticação.
      */
     public function logAuths()
