@@ -26,12 +26,12 @@ class CreateUsersTable extends Migration
         });
         
         Schema::create('log_auths', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->string('username', 255);
             $table->string('method', 5);
             $table->string('url');
             $table->boolean('success')->default(false);
-            $table->string('ip', 15);
+            $table->ipAddress('ip');
             $table->string('user_agent');
             $table->timestamps();
 
