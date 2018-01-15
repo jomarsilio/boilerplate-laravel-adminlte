@@ -25,8 +25,8 @@ class Role extends EntrustRole
         return $this->belongsToMany(
             config('auth.providers.users.model'),
             config('entrust.role_user_table'),
-            config('entrust.user_foreign_key'),
-            config('entrust.role_foreign_key')
+            config('entrust.role_foreign_key'),
+            config('entrust.user_foreign_key')
         );
     }
 }

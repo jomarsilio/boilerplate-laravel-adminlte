@@ -14,9 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('database.default') == 'mysql') {
-            Schema::defaultStringLength(191);
-        }
+        // if (config('database.default') == 'mysql') {
+        //     Schema::defaultStringLength(191);
+        // }
     }
 
     /**

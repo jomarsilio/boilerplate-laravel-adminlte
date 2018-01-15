@@ -29,6 +29,6 @@ postgres-database:
         POSTGRES_USER: root
         POSTGRES_PASSWORD: root
     expose:
-         - "5433"
+         - "5432"
     ports:
-        - "5433:5433"
+        - "5432:5432"

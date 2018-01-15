@@ -48,7 +48,7 @@ class RoleController extends Controller
         // Retorna a mensagem e sucesso.
         return redirect()
             ->route('admin.user.role.index')
-            ->with('success', trans('role.response.success.create_role_user'));
+            ->with('success', trans('role.response.success.create'));
     }
 
     /**
@@ -83,7 +83,7 @@ class RoleController extends Controller
         // Retorna a mensagem e sucesso.
         return redirect()
             ->route('admin.user.role.index')
-            ->with('success', trans('role.response.success.update_role_user'));
+            ->with('success', trans('role.response.success.update'));
     }
 
     /**
@@ -99,7 +99,7 @@ class RoleController extends Controller
             // Retorna a mensagem de erro.
             return redirect()
                 ->route('admin.user.role.index')
-                ->with('error', trans('role.response.error.destroy_role_user', ['name' => $role->display_name]));
+                ->with('error', trans('role.response.error.destroy', ['name' => $role->display_name]));
         }
 
         // Remove o papel e seus relacionamentos.
@@ -108,6 +108,6 @@ class RoleController extends Controller
         // Retorna a mensagem de sucesso.
         return redirect()
             ->route('admin.user.role.index')
-            ->with('success', trans('role.response.success.destroy_role_user'));
+            ->with('success', trans('role.response.success.destroy'));
     }
 }

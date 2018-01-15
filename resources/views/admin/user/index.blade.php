@@ -58,7 +58,7 @@
                     <tr class="{{ $user->active ? null : 'text-muted' }}">
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->username }}</td>
-                        <td class="d-none d-md-table-cell">{{ $user->roleName }}</td>
+                        <td class="d-none d-md-table-cell">{{ $user->roles->isNotEmpty() ? $user->roles->first()->display_name : '-' }}</td>
                         <td class="d-none d-md-table-cell">{{ $user->email ?: '-' }}</td>
                         <td class="d-none d-md-table-cell">{{ $user->accessed_at ?: '-' }}</td>
                         <td class="text-center">

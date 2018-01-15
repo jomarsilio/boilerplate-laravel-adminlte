@@ -35,8 +35,8 @@ return [
         ],
         'success' => [
             'profile_changed' => 'Perfil alterado com sucesso.',
-            'create_user_account' => 'Usuário criado com sucesso.',
-            'update_user_account' => 'Usuário alterado com sucesso.',
+            'create' => 'Usuário criado com sucesso.',
+            'update' => 'Usuário alterado com sucesso.',
         ],
     ],
 ];

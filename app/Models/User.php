@@ -48,8 +48,8 @@ class User extends Authenticatable
         return $this->belongsToMany(
             config('entrust.role'),
             config('entrust.role_user_table'),
-            config('entrust.role_foreign_key'),
-            config('entrust.user_foreign_key')
+            config('entrust.user_foreign_key'),
+            config('entrust.role_foreign_key')
         );
     }
 
