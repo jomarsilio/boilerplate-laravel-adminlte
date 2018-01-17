@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Services\Service;
 use Illuminate\Support\Str;
 
-class Menu extends Service
+class MenuService extends Service
 {
     /**
      * Rotas sem filtro de permissão.
@@ -104,6 +104,11 @@ class Menu extends Service
         $routes = app()->routes->getRoutes();
 
         $routes = collect($routes)->map(function ($route) {
+            // A rota é de um plugin de desenvolvimento?
+            if (Str::contains($route->getName(), 'debugbar')) {
+                return;
+            }
+
             $middleware = $this->getMiddleware($route);
 
             // A rota não utiliza o middleware de permissão de rota?

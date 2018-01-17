@@ -1,5 +1,5 @@
 @php
-    $menu = new \App\Services\Menu();
+    $menu = new \App\Services\MenuService();
 @endphp
 
 @foreach($menu->filter() as $dividerLabel => $menus)
