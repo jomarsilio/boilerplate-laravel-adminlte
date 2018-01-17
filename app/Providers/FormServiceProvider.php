@@ -41,7 +41,7 @@ class FormServiceProvider extends ServiceProvider
             // Trata os valores necessários.
             $id = str_replace(['[', ']', '_'], ['-', '', '-'], $name);
             $requestValue = str_replace(['[', ']'], ['.', ''], $name);
-            $required = in_array('required', $options) ? $options['required'] : false;
+            $required = !empty($options['required']) ? $options['required'] : false;
 
             // Trata os atributos do input.
             $options = array_merge($options, [
@@ -70,7 +70,7 @@ class FormServiceProvider extends ServiceProvider
             // Trata os valores necessários.
             $id = str_replace(['[', ']', '_'], ['-', '', '-'], $name);
             $requestValue = str_replace(['[', ']'], ['.', ''], $name);
-            $required = in_array('required', $options) ? $options['required'] : false;
+            $required = !empty($options['required']) ? $options['required'] : false;
 
             // Trata os atributos do input.
             $options = array_merge($options, [
@@ -102,7 +102,7 @@ class FormServiceProvider extends ServiceProvider
             // Trata os valores necessários.
             $id = str_replace(['[', ']', '_'], ['-', '', '-'], $name);
             $requestValue = str_replace(['[', ']'], ['.', ''], $name);
-            $required = in_array('required', $options) ? $options['required'] : false;
+            $required = !empty($options['required']) ? $options['required'] : false;
 
             // Trata os atributos do input.
             $options = array_merge($options, [
