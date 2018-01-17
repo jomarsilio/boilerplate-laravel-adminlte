@@ -51,12 +51,12 @@ class PermissionController extends Controller
             
             // Retorno como json.
             return response()->json([
-                'success' => trans('role.response.success.destroy_role_user')
+                'success' => trans('role.response.success.destroy')
             ], $httpResponse);
         }
 
         return redirect()
             ->route('admin.user.role.permission.index', $role)
-            ->with('success', trans('role.response.success.destroy_role_user'));
+            ->with('success', trans('role.response.success.destroy'));
     }
 }

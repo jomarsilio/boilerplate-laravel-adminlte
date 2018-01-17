@@ -21,9 +21,9 @@ class RoutePermission
         $routeName = Route::currentRouteName();
 
         // É usuário sem autenticação ou sem permissão de acesso para a rota atual?
-        if (auth()->guest() || !Entrust::can($routeName)) {
-			abort(403, 'Unauthorized action');
-		}
+        if (auth()->guest() || !auth()->user()->can($routeName)) {
+            abort(403, 'Unauthorized action');
+        }
 
         return $next($request);
     }

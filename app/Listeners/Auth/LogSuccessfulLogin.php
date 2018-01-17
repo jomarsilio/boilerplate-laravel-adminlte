@@ -37,7 +37,7 @@ class LogSuccessfulLogin
         // Grava o log.
         LogAuth::create([
             'user_id' => $event->user->id,
-            'username' => $request->input('username'),
+            'username' => $request->input('username') ?: auth()->user()->username,
             'method' => $request->method(),
             'url' => $request->url(),
             'ip' => $request->ip(),

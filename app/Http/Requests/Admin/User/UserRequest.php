@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        switch($this->method()) {
+        switch ($this->method()) {
             case 'PUT':
                 return [
                     'user.name' => 'required|string|max:'.config('validation.user.name.max'),
@@ -46,6 +46,6 @@ class UserRequest extends FormRequest
                     'role_id' => 'required|integer',
                 ];
                 break;
-        }        
+        }
     }
 }

@@ -9,7 +9,8 @@ use Carbon\Carbon;
 
 class User extends Authenticatable
 {
-    use Notifiable, EntrustUserTrait;
+    use Notifiable,
+        EntrustUserTrait;
 
     /**
      * Atributos que são atribuíveis a massa.

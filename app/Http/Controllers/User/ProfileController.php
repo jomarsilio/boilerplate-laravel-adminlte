@@ -55,14 +55,13 @@ class ProfileController extends Controller
             return back()->with('error', trans('user.response.error.incorrect_password'));
         }
 
-        // Seta a nova senha de acesso.
         if (!empty($newPassword)) {
             // Seta a nova senha de acesso.
             $user->password = Hash::make($newPassword);
         }
 
         // Percorre os valores a serem atualizados.
-        foreach($userValues as $key => $value) {
+        foreach ($userValues as $key => $value) {
             $user->$key = $value;
         }
         
