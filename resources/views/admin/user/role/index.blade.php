@@ -96,9 +96,9 @@
             @endcomponent
         </div>
 
-        @if(count($roles) > 15)
-            <div class="box-footer">
-                @include('shared.buttons._create', ['route' => 'admin.user.role.create'])
+        @if ($roles)
+            <div class="box-footer py-3">
+                <div class="text-center text-muted small">Total: {{ count($roles) }}</div>
             </div>
         @endif
     </div>
