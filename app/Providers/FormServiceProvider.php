@@ -41,18 +41,19 @@ class FormServiceProvider extends ServiceProvider
             // Trata os valores necessários.
             $id = str_replace(['[', ']', '_'], ['-', '', '-'], $name);
             $requestValue = str_replace(['[', ']'], ['.', ''], $name);
+            $required = in_array('required', $options) ? $options['required'] : false;
 
             // Trata os atributos do input.
             $options = array_merge($options, [
                 'id' => $id,
                 'title' => trans($label),
-                'class' => 'form-control' 
+                'class' => 'form-control'
                             . ($errors->has($requestValue) ? ' is-invalid' : '')
                             . (!empty($options['class']) ? " {$options['class']}" : null)
             ]);
 
             return '<div class="form-group">'
-                    . Form::label($id, trans($label))
+                    . Form::label($id, trans($label).($required ? ' *' : null))
                     . Form::$type($name, old($requestValue) ?: $value, $options)
                     . Form::error($requestValue, $errors)
                     . '</div>';
@@ -69,18 +70,19 @@ class FormServiceProvider extends ServiceProvider
             // Trata os valores necessários.
             $id = str_replace(['[', ']', '_'], ['-', '', '-'], $name);
             $requestValue = str_replace(['[', ']'], ['.', ''], $name);
+            $required = in_array('required', $options) ? $options['required'] : false;
 
             // Trata os atributos do input.
             $options = array_merge($options, [
                 'id' => $id,
                 'title' => trans($label),
-                'class' => 'form-control' 
+                'class' => 'form-control'
                             . ($errors->has($requestValue) ? ' is-invalid' : '')
                             . (!empty($options['class']) ? " {$options['class']}" : null)
             ]);
 
             return '<div class="form-group">'
-                    . Form::label($id, trans($label))
+                    . Form::label($id, trans($label).($required ? ' *' : null))
                     . '<div class="input-group">'
                     . Form::input('password', $name, old($requestValue) ?: $value, $options)
                     . '<span class="input-group-addon" data-toggle="password" data-target="#'.$id.'"><i class="fa fa-eye-slash"></i></span>'
@@ -100,18 +102,19 @@ class FormServiceProvider extends ServiceProvider
             // Trata os valores necessários.
             $id = str_replace(['[', ']', '_'], ['-', '', '-'], $name);
             $requestValue = str_replace(['[', ']'], ['.', ''], $name);
+            $required = in_array('required', $options) ? $options['required'] : false;
 
             // Trata os atributos do input.
             $options = array_merge($options, [
                 'id' => $id,
                 'title' => trans($label),
-                'class' => 'form-control' 
+                'class' => 'form-control'
                             . ($errors->has($requestValue) ? ' is-invalid' : '')
                             . (!empty($options['class']) ? " {$options['class']}" : null)
             ]);
 
             return '<div class="form-group">'
-                    . Form::label($id, trans($label))
+                    . Form::label($id, trans($label).($required ? ' *' : null))
                     . Form::select($name, $list, old($requestValue) ?: $selected, $options)
                     . Form::error($requestValue, $errors)
                     . '</div>';
