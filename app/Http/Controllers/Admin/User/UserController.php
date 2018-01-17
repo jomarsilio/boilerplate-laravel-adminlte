@@ -19,7 +19,9 @@ class UserController extends Controller
     public function index()
     {
         // Resgata os usuários.
-        $users = User::with('roles')->orderBy('name')->get();
+        $users = User::with('roles')
+            ->orderBy('name')
+            ->paginate(config('constant.pagination.perPage'));
 
         return view('admin.user.index', compact('users'));
     }

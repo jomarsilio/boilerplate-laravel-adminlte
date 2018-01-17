@@ -1,7 +1,8 @@
 @if ($paginator->hasPages())
-    <ul class="pagination pagination-sm justify-content-center m-0">
+    <ul class="pagination pagination-sm justify-content-center">
 
-        <li class="page-item"><a class="page-link" href="{{ $paginator->url(1) }}" rel="prev">&laquo;</a></li>
+        {{--  First page link  --}}
+        {{--  <li class="page-item"><a class="page-link" href="{{ $paginator->url(1) }}" rel="prev">&laquo;</a></li>  --}}
 
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
@@ -35,6 +36,8 @@
         @else
             <li class="page-item disabled"><span class="page-link">&gt;</span></li>
         @endif
-        <li class="page-item"><a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}" rel="prev">&raquo;</a></li>
+
+        {{--  Last page link  --}}
+        {{--  <li class="page-item"><a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}" rel="prev">&raquo;</a></li>  --}}
     </ul>
 @endif

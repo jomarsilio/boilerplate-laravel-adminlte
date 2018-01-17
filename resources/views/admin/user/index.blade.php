@@ -77,11 +77,10 @@
             @endcomponent
         </div>
 
-        @if(count($users) > 15)
-            <div class="box-footer">
-                @include('shared.buttons._create', ['route' => 'admin.user.create'])
-            </div>
-        @endif
+        {{--  Paginação  --}}
+        @include('shared._pagination', [
+            'collection' => $users
+        ])
     </div>
 
 @endsection
