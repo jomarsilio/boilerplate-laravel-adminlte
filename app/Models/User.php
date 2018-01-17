@@ -117,4 +117,25 @@ class User extends Authenticatable
 
         return null;
     }
+
+    /**
+     * Sobrescrito o método que retorna os papéis do usuário pois não estava salvando em Cache.
+     *
+     * @return Collection
+     */
+    public function cachedRoles()
+    {
+        if (config('cache.default') == 'array') {
+            $userPrimaryKey = $this->primaryKey;
+            $cacheKey = 'entrust_roles_for_user_'.$this->$userPrimaryKey;
+            
+            if (!isset($this->$cacheKey)) {
+                $this->$cacheKey = $this->roles()->get();
+            }
+            
+            return $this->$cacheKey;
+        } else {
+            return EntrustUserTrait::cachedRoles();
+        }
+    }
 }

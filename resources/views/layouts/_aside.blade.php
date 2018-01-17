@@ -5,7 +5,9 @@
 		{{-- User panel --}}
 		<div class="user-panel">
 			<div class="float-left image">
-				<i aria-hidden="true" class="fa fa-user-circle-o text-white"></i>
+                <a href="{{ route('user.profile.edit') }}">
+                    <i aria-hidden="true" class="fa fa-user-circle-o text-white"></i>
+                </a>
 			</div>
 			<div class="float-left info">
 				<p class="text-truncate">{{ auth()->user()->shortName }}</p>

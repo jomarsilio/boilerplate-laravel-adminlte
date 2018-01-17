@@ -35,8 +35,8 @@
                         <li class="user-header dropdown-item">
                             <i aria-hidden="true" class="fa fa-user-circle-o fa-5x text-white"></i>
                             <p class="text-truncate">
-                                {{ auth()->user()->shortName }} - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                {{ auth()->user()->name }}
+                                <small>{{ auth()->user()->roles->first()->display_name }}</small>
                             </p>
                         </li>
 
