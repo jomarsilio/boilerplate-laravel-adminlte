@@ -13,7 +13,12 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        \Illuminate\Auth\AuthenticationException::class,
+        \Illuminate\Auth\Access\AuthorizationException::class,
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
+        \Illuminate\Database\Eloquent\ModelNotFoundException::class,
+        \Illuminate\Validation\ValidationException::class,
+        TokenMismatchException::class,
     ];
 
     /**
@@ -48,6 +53,35 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // Tratamento de erros somente em produção.
+        if (config('app.env') == 'production' || config('app.debug') == false) {
+
+            // A exception deve ser tratada?
+            if (!in_array(get_class($exception), $this->dontReport)) {
+                
+                // Resgata o código do erro.
+                $statusCode = $this->isHttpException($exception) ? $e->getStatusCode() : 500;
+                
+                // Seta a mensagem de erro.
+                $error = trans('app.response.error.generic').'<br /><br /><small>'. $exception->getMessage().'</small>';
+                
+                if ($request->expectsJson()) {
+                    // Retorno do json.
+                    $json = [
+                        'error' => $error,
+                    ];
+                    
+                    $response = response()->json($json, $statusCode);
+                } else {
+                    // View com o erro.
+                    $response = response()
+                        ->view('errors.500', ['message' => $error], $statusCode);
+                }
+                
+                return $response->withException($exception);
+            }
+        }
+
         return parent::render($request, $exception);
     }
 }
