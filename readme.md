@@ -1,4 +1,4 @@
-# Laravel/AdminLTE/Bootstrap 4 Boilerplate
+# Laravel/AdminLTE/Bootstrap Boilerplate
 
 ![Laravel](https://img.shields.io/badge/Laravel-5.5.x-green.svg)
 ![Bootstrap 4.0.0-beta.2](https://img.shields.io/badge/Bootstrap-4.0.0--beta.2-blue.svg)
