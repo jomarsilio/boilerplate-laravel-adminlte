@@ -1,7 +1,8 @@
 # Laravel/AdminLTE/Bootstrap 4 Boilerplate
 
-![Laravel](https://img.shields.io/badge/Laravel-5.5.x-green.svg)
-![Bootstrap 4.0.0-beta.2](https://img.shields.io/badge/Bootstrap-4.0.0--beta.2-blue.svg)
+![Laravel](https://img.shields.io/badge/Laravel-5.6.x-green.svg)
+![Bootstrap 4.0.0](https://img.shields.io/badge/Bootstrap-4.0.0-blue.svg)
+![AdminLTE 2.4.2](https://img.shields.io/badge/AdminLTE-2.4.2-red.svg)
 
 This package is to be served as a basis for a web application. 
 
@@ -49,7 +50,6 @@ $ docker-compose exec db bash
 $ docker-compose run web php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
 $ docker-compose run web php composer.phar install
 $ docker-compose run web npm install
-$ docker-compose run web ./node_modules/.bin/bower install --allow-root
 $ docker-compose run web npm run dev
 $ docker-compose run web chmod 0777 storage -R
 $ docker-compose run web chmod 0777 bootstrap/cache -R

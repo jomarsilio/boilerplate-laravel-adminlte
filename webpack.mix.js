@@ -18,8 +18,8 @@ mix.sass('resources/assets/sass/app.scss', 'public/assets/css').options({
 
 /* CSS DE FONTES */
 mix.styles([
-    'bower_components/font-awesome/css/font-awesome.min.css',
-    'bower_components/Ionicons/css/ionicons.min.css',
+    'node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css',
+    'node_modules/ionicons/dist/css/ionicons.min.css',
 ], 'public/assets/css/fonts.min.css').version();
 
 /* CSS DO BOOTSTRAP */
@@ -29,7 +29,7 @@ mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/assets/css
 mix.styles([
     'resources/assets/AdminLTE/dist/css/alt/AdminLTE-without-plugins.min.css',
     'resources/assets/AdminLTE/dist/css/skins/skin-blue.min.css',
-    'bower_components/select2/dist/css/select2.min.css',
+    'node_modules/select2/dist/css/select2.min.css',
     'resources/assets/AdminLTE/dist/css/alt/AdminLTE-select2.css',
 ], 'public/assets/css/AdminLTE.min.css').version();
 
@@ -38,15 +38,24 @@ mix.copyDirectory('resources/assets/images', 'public/assets/images')
     .copyDirectory('resources/assets/AdminLTE/dist/img', 'public/assets/images');
 
 /* FONTS */
-mix.copyDirectory('bower_components/font-awesome/fonts', 'public/assets/fonts');
-mix.copyDirectory('bower_components/Ionicons/fonts', 'public/assets/fonts');
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts');
+mix.copyDirectory('node_modules/ionicons/dist/fonts', 'public/assets/fonts');
 
 /* JS DA APLICAÇÃO */
 mix.scripts([
     'resources/assets/js/app.js',
-    'resources/assets/js/app/*.js',
-    'resources/assets/js/app/**/*.js',
-    'resources/assets/js/bind/**/*.js',
+    'resources/assets/js/app/ajax.js',
+    'resources/assets/js/app/bootstrap.js',
+    'resources/assets/js/app/menu.js',
+    'resources/assets/js/app/preloader.js',
+    'resources/assets/js/app/search.js',
+    'resources/assets/js/app/utils.js',
+    'resources/assets/js/app/ajax/event.js',
+    'resources/assets/js/bind/data/mask-format.js',
+    'resources/assets/js/bind/data/search.js',
+    'resources/assets/js/bind/data/ajax/modal.js',
+    'resources/assets/js/bind/data/ajax/form/checkbox.js',
+    'resources/assets/js/bind/data/form/password.js',
 ], 'public/assets/js/app.min.js').version();
 
 /* JS DO BOOTSTRAP */
@@ -58,11 +67,11 @@ mix.scripts([
 /* JS DO JQUERY */
 mix.scripts([
     'node_modules/jquery/dist/jquery.min.js',
-    'bower_components/jquery-mask-plugin/dist/jquery.mask.min.js',
+    'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
 ], 'public/assets/js/jquery.min.js').version();
 
 /* JS DO TEMPLATE */
 mix.scripts([
     'resources/assets/AdminLTE/dist/js/adminlte.min.js',
-    'bower_components/select2/dist/js/select2.js'
+    'node_modules/select2/dist/js/select2.js'
 ], 'public/assets/js/adminlte.min.js').version();
